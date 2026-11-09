@@ -1,0 +1,197 @@
+\par\medskip\noindent\textbf{LLM single call, LLM monotone, LLM monotone (constrained) and LLM re-rank: system message.}\par\nobreak
+\begin{lstlisting}
+You align lecture transcripts to slide decks. You answer with JSON and nothing else: no explanation, no code fence, no prose before or after the object.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM single call (also the LLM voter of Ensemble vote): user message.}\par\nobreak
+\begin{lstlisting}
+The deck has {n_slides} slides, numbered 0 to {last_slide}.
+The transcript has {n_rows} rows, numbered 0 to {last_row}.
+
+SLIDES
+{slides}
+
+TRANSCRIPT
+{rows}
+
+Assign every transcript row to the slide it is about. Rows about the same slide are
+usually next to each other, but you are not required to move through the deck in order,
+and slides nobody discussed may be left out.
+
+Answer with a JSON object of exactly this shape:
+
+  {"blocks": [{"from": a, "to": b, "slide": j}, {"from": c, "to": d, "slide": k}, ...]}
+
+"from" and "to" are INCLUSIVE row numbers, "slide" is a slide number in
+0..{last_slide}, and the blocks together must cover every row from 0 to {last_row}
+exactly once, listed in increasing order of "from".
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM monotone: user message.}\par\nobreak
+\begin{lstlisting}
+The deck has {n_slides} slides, numbered 0 to {last_slide}.
+The transcript has {n_rows} rows, numbered 0 to {last_row}.
+
+SLIDES
+{slides}
+
+TRANSCRIPT
+{rows}
+
+The lecturer moves through the deck in order, from slide 0 to slide {last_slide},
+without going back. Say where each slide STARTS: the row number at which the lecturer
+begins talking about it.
+
+Answer with a JSON object of exactly this shape:
+
+  {"starts": [0, s1, s2, ...]}
+
+The list has exactly {n_slides} numbers, one per slide in deck order. It must be
+non-decreasing, the first number must be 0, and every number must be in
+0..{last_row}. A slide the lecturer skipped gets the same start as the slide after it.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM monotone (constrained): user message.}\par\nobreak
+\begin{lstlisting}
+The deck has {n_slides} slides, numbered 0 to {last_slide}.
+The transcript has {n_rows} rows, numbered 0 to {last_row}.
+
+SLIDES
+{slides}
+
+TRANSCRIPT
+{rows}
+
+The lecturer moves through the deck in order, from slide 0 to slide {last_slide},
+without ever going back. Say how LONG the lecturer spends on each slide: for each slide
+in deck order, the number of consecutive transcript rows spent on it.
+
+Answer with a JSON object of exactly this shape:
+
+  {"gaps": [g0, g1, g2, ...]}
+
+The list has exactly {n_slides} numbers, one per slide in deck order, each of them 0 or
+more. A slide the lecturer skipped gets 0. The numbers should add up to about {n_rows},
+the length of the transcript.
+
+Slide 0 starts at row 0. Slide k starts at the row given by the sum of the first k
+numbers, so the alignment always moves forward through the deck.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM re-rank (5 methods): user message.}\par\nobreak
+\begin{lstlisting}
+The deck has {n_slides} slides, numbered 0 to {last_slide}.
+The transcript has {n_rows} rows, numbered 0 to {last_row}.
+
+SLIDES
+{slides}
+
+TRANSCRIPT
+{rows}
+
+Below are {k} candidate alignments of this transcript to this deck. Each was produced
+by a different alignment method and is written as the row ranges on which each slide is
+being discussed (a slide may appear more than once if the lecturer returns to it).
+
+{candidates}
+
+Exactly one of them is to be chosen. Pick the candidate whose slide ranges best match
+what the transcript actually says, and answer with a JSON object of exactly this shape:
+
+  {"choice": 1}
+
+where the number is between 1 and {k}.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM hierarchical (also inside LLM-prior DP), split call: system message.}\par\nobreak
+\begin{lstlisting}
+You are aligning lecture transcript packets to slide-page ranges.
+
+The slides and transcript are from the SAME lecture.
+The spoken transcript does NOT need exact wording overlap with the slide text.
+A transcript packet can belong to a page range even when it:
+- paraphrases slide content
+- expands with examples
+- explains figures/tables indirectly
+- continues the instructor's explanation without repeating slide words
+
+You are given:
+- a LEFT consecutive page range
+- a RIGHT consecutive page range
+- consecutive transcript packets from one continuous lecture segment
+
+Your job:
+decide where the lecture moves from the LEFT page range to the RIGHT page range.
+
+Return strict JSON only.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM hierarchical, split call: user message.}\par\nobreak
+\begin{lstlisting}
+LEFT PAGE RANGE:
+{left_pages}
+
+RIGHT PAGE RANGE:
+{right_pages}
+
+TRANSCRIPT PACKETS IN CHRONOLOGICAL ORDER:
+{packets}
+
+Return strict JSON with this exact schema:
+{
+  "transition_after_local_packet_pos": <int or null>
+}
+
+Interpretation:
+- if transition_after_local_packet_pos is X, packets up to local position X belong mainly to the LEFT page range,
+  and packets after X belong mainly to the RIGHT page range
+- local packet positions are 0-based within the packet list shown above
+- if ALL packets belong mainly to the RIGHT page range, return null
+- if ALL packets belong mainly to the LEFT page range, return the last local packet position shown
+
+Rules:
+- preserve chronology
+- be conservative
+- choose the most plausible transition in lecture flow, not literal text overlap
+- do not explain your choice and do not output any text outside the JSON object
+
+Pacing guidance: on average about {spp} sections correspond to one slide, so a page range of P pages should receive roughly P*{spp} sections. Prefer a transition that reflects this pacing over dumping all packets on one side.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM hierarchical, leaf call: system message.}\par\nobreak
+\begin{lstlisting}
+You are aligning transcript sections to a small consecutive range of slide pages.
+
+The slides and transcript are from the SAME lecture.
+A section may belong to a page even if the wording differs. It may paraphrase, expand, explain examples, or continue the instructor's explanation of the page.
+
+Return a monotonic section-to-page assignment:
+- section assignments must be non-decreasing in page index
+- pages may receive zero or more sections
+- use exact provided page indices only
+Return strict JSON only.
+\end{lstlisting}
+
+\par\medskip\noindent\textbf{LLM hierarchical, leaf call: user message.}\par\nobreak
+\begin{lstlisting}
+PAGES:
+{pages}
+
+TRANSCRIPT SECTIONS:
+{sections}
+
+Return strict JSON with this exact schema:
+{
+  "assignments": [
+    {"section_idx": <int>, "page_index": <int>}
+  ]
+}
+
+Rules:
+- assign every shown section exactly one page_index from the provided pages
+- assignments must be monotonic non-decreasing in page_index
+- use lecture-flow reasoning, not literal text matching only
+- do not give reasons and do not output any text outside the JSON object
+
+Pacing guidance: in this lecture the instructor spends on average about {spp} transcript sections per slide. Distribute the sections across the pages accordingly; do NOT lump most sections onto the first page. Move to the next page once the discussion clearly shifts to it, and keep progressing in order.
+\end{lstlisting}

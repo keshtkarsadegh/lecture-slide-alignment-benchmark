@@ -1,0 +1,28 @@
+axis,level,n,mavils,m3av_a,m3av_b,mcd,slide_highlight
+corpus,mavils,20,20,0,0,0,0
+corpus,m3av_a,538,0,538,0,0,0
+corpus,m3av_b,536,0,0,536,0,0
+corpus,mcd,23,0,0,0,23,0
+corpus,slide_highlight,14,0,0,0,0,14
+text_source,pdf_text_layer,19,19,0,0,0,0
+text_source,corpus_corrected_ocr,1074,0,538,536,0,0
+text_source,tesseract_ocr,38,1,0,0,23,14
+length,short,458,1,216,213,17,11
+length,medium,311,1,150,151,6,3
+length,long,362,18,172,172,0,0
+images,low,377,11,164,179,15,8
+images,medium,377,7,176,185,6,3
+images,high,377,2,198,172,2,3
+tables,none,732,13,353,363,1,2
+tables,some,399,7,185,173,22,12
+noise,low,377,7,172,197,1,0
+noise,medium,377,9,195,164,3,6
+noise,high,377,4,171,175,19,8
+text_density,low,377,6,183,188,0,0
+text_density,medium,377,6,186,184,0,1
+text_density,high,377,8,169,164,23,13
+discipline,Computer and information sciences,742,8,354,344,22,14
+discipline,Natural sciences (other),177,5,79,92,1,0
+discipline,Engineering and technology,39,1,16,22,0,0
+discipline,Medical and health sciences,133,2,71,60,0,0
+discipline,Social sciences,40,4,18,18,0,0

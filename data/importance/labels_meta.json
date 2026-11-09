@@ -1,0 +1,105 @@
+{
+  "labeller": "Claude Opus 5.5",
+  "guideline": "docs/IMPORTANCE.md",
+  "guideline_sha256": "5c9293da429367714720c07e2e48c8d6084ccc414f1d21eb324c823f1ab057c6",
+  "date": "2026-10-14",
+  "levels": {
+    "0": "filler",
+    "1": "supporting",
+    "2": "core"
+  },
+  "n_lectures": 140,
+  "n_units": 18315,
+  "label_counts": {
+    "0": 1603,
+    "1": 8605,
+    "2": 8107
+  },
+  "raw_files": [
+    {
+      "file": "data/importance/raw/b01.csv",
+      "sha256": "7497c1b18332f29f2a828ea6d7c70b5bf74a487c79594c770b658ff557fbe873"
+    },
+    {
+      "file": "data/importance/raw/b02.csv",
+      "sha256": "c6830b90063debf46a52b94478b6755e275c4cc288dc1cd33ec0e671335077c8"
+    },
+    {
+      "file": "data/importance/raw/b03.csv",
+      "sha256": "29c1f01296267af03faf0aca922292ec12204b488037f51bca16c84527bde077"
+    },
+    {
+      "file": "data/importance/raw/b04.csv",
+      "sha256": "ff46aba1148c13bb05d7089e32efe10711bf92917dc840f35b66f8c8c8904d6f"
+    },
+    {
+      "file": "data/importance/raw/b05.csv",
+      "sha256": "6b69ed4e06940730037c8c11093f5a7150053be31311988e44e43681a3008a49"
+    },
+    {
+      "file": "data/importance/raw/b06.csv",
+      "sha256": "02ac64f8cfa62c915bf69ff144b3a63a5fac0ba4db488b84e30b90df48d62d4f"
+    },
+    {
+      "file": "data/importance/raw/b07.csv",
+      "sha256": "1af8592a29d5f14041328c81eae99a4f29928cc7379a1d6d47a2ddb4a07bda00"
+    },
+    {
+      "file": "data/importance/raw/b08.csv",
+      "sha256": "ac21a316f1414ed6217d9f9944193d7d780cf70d968be5409b432b0fa9588ef6"
+    },
+    {
+      "file": "data/importance/raw/b09.csv",
+      "sha256": "7a85818511a8c7028f490adc690a8a9122ee605bde81e9c50e3d0c474c6bd9a0"
+    },
+    {
+      "file": "data/importance/raw/b10.csv",
+      "sha256": "533b8bbbecb1c522ba53c2cd60c7f2a1d2433783a99fc57d2c01bd11462be8c0"
+    },
+    {
+      "file": "data/importance/raw/b11.csv",
+      "sha256": "11a60afb3a384ff3c57c904779b12415f611ec966e6c6fad4465c59cd3daead6"
+    },
+    {
+      "file": "data/importance/raw/b12.csv",
+      "sha256": "d0a50846db3e3ae116ea5857098a7b8d60e107edd7bd91ff81eac519924f4ac8"
+    },
+    {
+      "file": "data/importance/raw/b13.csv",
+      "sha256": "9b1fd30480b78c5c6ffcdc94b90ac6e44c731d2ff4389c3c53e494a7f2b1df02"
+    },
+    {
+      "file": "data/importance/raw/b14.csv",
+      "sha256": "a698e84cc9d992547301704df575128a6b3c45bd7b4a04c6c02385291526abac"
+    },
+    {
+      "file": "data/importance/raw/b15.csv",
+      "sha256": "c61fc633382cff0e7b7cc1a5c4893c2a1fab85daedf6e939614923b56eba1188"
+    },
+    {
+      "file": "data/importance/raw/b16.csv",
+      "sha256": "230de3c4e3dfe02f4abfbb3dd783d02f4dabcfbb436f97cf4ab73d860a934c0f"
+    },
+    {
+      "file": "data/importance/raw/b17.csv",
+      "sha256": "3889e2044a5cfe7d0e65b46ff2f1ac8c7f777e9633f93f548a32dba81efe7608"
+    },
+    {
+      "file": "data/importance/raw/b18.csv",
+      "sha256": "da5eeaec5c6f7ec438604e30061c48ba053cbf47b39b84c64abb7fd09939d8e8"
+    },
+    {
+      "file": "data/importance/raw/b19.csv",
+      "sha256": "16ea020f18ae0edd34f3e232f3a9aacc3f012194e8d12639231e2c54d3f835c0"
+    },
+    {
+      "file": "data/importance/raw/b20.csv",
+      "sha256": "1083dd2154512db49a1694c894308015f153d1f22017112b787cade6ff7f5da6"
+    },
+    {
+      "file": "data/importance/raw/b21.csv",
+      "sha256": "23afde31032d2cfbcba2ec5d81e0b6deab9df8a53e536abf4cf748139d821509"
+    }
+  ],
+  "labels_sha256": "4644c5271416c2791a2113d8a194c08167e2915824c18679e634074f34fe67d3"
+}

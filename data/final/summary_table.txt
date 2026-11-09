@@ -1,0 +1,35 @@
+method                     kind      test % tuning %   diff  compute s   build s LLM calls    LLM s tokens (prompt+compl.) paid calls
+-------------------------------------------------------------------------------------------------------------------------------------
+score_fusion               non-LLM    72.21    75.02  -2.81      29.52    3181.0         0      0.0                      0          0
+gotoh                      non-LLM    72.07    75.55  -3.48       8.08    3181.0         0      0.0                      0          0
+needleman_wunsch           non-LLM    71.37    74.83  -3.46       2.43    3181.0         0      0.0                      0          0
+dtw                        non-LLM    71.34    74.17  -2.83       0.26    3181.0         0      0.0                      0          0
+softdtw                    non-LLM    71.15    74.95  -3.80       0.74    3181.0         0      0.0                      0          0
+ensemble                   mixed      71.07    74.19  -3.13       3.94    3872.1       140   1632.0                 885786          0
+adaptive_prior             non-LLM    71.06    74.49  -3.42       0.32    3181.0         0      0.0                      0          0
+anchored_dp                non-LLM    70.94    73.68  -2.74       0.35    3872.6         0      0.0                      0          0
+drop_dtw                   non-LLM    70.90    74.51  -3.61       1.90    3181.0         0      0.0                      0          0
+multiscale_dtw             non-LLM    70.78    74.03  -3.25       0.57    3181.0         0      0.0                      0          0
+semimarkov                 non-LLM    70.48    74.68  -4.19      25.22    3181.0         0      0.0                      0          0
+llm_rerank_kbest           mixed      70.23    73.52  -3.29       3.94    3181.0       140    165.7                 982437        140
+mbr                        non-LLM    70.22    74.30  -4.08       1.52    3181.0         0      0.0                      0          0
+pelt                       non-LLM    69.83    72.89  -3.06       0.47    3181.0         0      0.0                      0          0
+jump_dtw                   non-LLM    67.99    71.82  -3.84       0.29    3181.0         0      0.0                      0          0
+cohesion_dp                non-LLM    67.98    71.56  -3.58       0.59    3181.0         0      0.0                      0          0
+fusion                     mixed      67.70    71.27  -3.57       0.30    3181.0      1541   5933.0                3979274          0
+dp                         non-LLM    67.55    70.99  -3.45       0.21    3181.0         0      0.0                      0          0
+forward_backward           non-LLM    65.98    69.15  -3.17       0.24    3181.0         0      0.0                      0          0
+bocpd                      non-LLM    62.15    66.80  -4.65       0.90    3181.0         0      0.0                      0          0
+rank_dp                    non-LLM    61.57    66.07  -4.49       0.31    3181.0         0      0.0                      0          0
+ot_unbalanced              non-LLM    61.24    66.25  -5.00       1.12    3872.6         0      0.0                      0          0
+opw                        non-LLM    54.27    59.66  -5.39       5.42    3872.6         0      0.0                      0          0
+llm_single_call            LLM        51.96    53.61  -1.65       0.05     691.1       140   1632.0                 885786        140
+argmax                     non-LLM    50.62    54.17  -3.55       0.01    3181.0         0      0.0                      0          0
+hierarchical               LLM        49.65    52.91  -3.26       0.17       0.0      1541   5933.0                3979274       1541
+wbs2                       non-LLM    35.47    41.60  -6.12      10.01     691.1         0      0.0                      0          0
+llm_monotone               LLM        33.30    34.19  -0.89       0.04     691.1       140    521.9                 825873        140
+llm_monotone_constrained   LLM        32.12    31.17  +0.95       0.06     691.1       140    216.9                 829705        140
+texttiling                 non-LLM    29.07    35.94  -6.87       0.36       1.0         0      0.0                      0          0
+texttiling_dp              non-LLM    28.90    32.58  -3.68       1.23     691.1         0      0.0                      0          0
+
+LLM calls, LLM s, tokens: the answers each method used (cached ones included: a combined method carries its members'); paid calls: paid in this run, each once. compute s: the methods' own time; build s: the step-12 tables of the measures used, with their deps and model loads.

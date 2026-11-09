@@ -1,0 +1,40 @@
+# Apptainer image with the `models` extra of pyproject.toml, for step 10's model scorers
+# (splade, cross_encoder, image; scripts/build_similarity.py). Built by
+# cluster/10a_similarity_image.sbatch into
+#   $PROJECT_ROOT/models_lsab/images/similarity.sif
+# One image file instead of installing torch into the virtual environment: torch and its
+# CUDA libraries are tens of thousands of files, and the project space is close to its
+# inode quota. The model weights are NOT in the image (scripts/build_similarity.py fetch).
+#
+# Base: python 3.12.15-slim-bookworm, pinned by its index digest (the same as layout.def).
+# Packages: the versions of pyproject.toml's `models` extra and of the base dependencies
+# the scorers import (numpy, snowballstemmer); torch and torchvision are the +cu126 builds
+# from PyTorch's cu126 index (the GPU nodes run a CUDA 12.x driver). colpali-engine's own
+# dependencies (peft, scipy, ...) are resolved by pip; the full list of what pip installed
+# is written to /opt/pip-freeze.txt, and scripts/build_similarity.py stores it with the
+# tables.
+Bootstrap: docker
+From: python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
+
+%post
+    set -eu
+    export PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+    python -m pip install --no-compile \
+        --index-url https://download.pytorch.org/whl/cu126 \
+        "torch==2.13.0+cu126" "torchvision==0.28.0+cu126"
+    python -m pip install --no-compile \
+        "transformers==5.17.0" "colpali-engine==0.3.18" "accelerate==1.15.0" \
+        "pillow==12.3.0" "numpy==2.2.6" "snowballstemmer==2.2.0" \
+        "torch==2.13.0+cu126" "torchvision==0.28.0+cu126" \
+        --extra-index-url https://download.pytorch.org/whl/cu126
+    python -m pip freeze > /opt/pip-freeze.txt
+    python -c "import torch, transformers, colpali_engine, accelerate, PIL; from importlib.metadata import version as v; print(torch.__version__, transformers.__version__, v('colpali-engine'), accelerate.__version__, PIL.__version__)"
+
+%environment
+    export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+    export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+
+%labels
+    torch 2.13.0+cu126
+    transformers 5.17.0
+    colpali-engine 0.3.18

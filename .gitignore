@@ -1,0 +1,59 @@
+# Virtual environments (the project env lives outside the repo, see ACTIVATE.md)
+envs/
+.venv/
+venv/
+
+# Caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+
+# SLURM logs
+cluster/logs/
+
+# Partial downloads
+*.part
+
+# The LLM API key (config/llm.toml says how to provide it); never in git
+config/llm_credentials.toml
+
+# The site values (Slurm account, proxy, LLM endpoint and key); cluster/env.local.example
+# shows the variables
+cluster/env.local
+
+# The lectures: downloaded and prepared again by scripts/download.py and scripts/prepare.py
+# (pinned versions, checked by hash), so they are not in git. The preparation's counts
+# (summary.csv) and its dropped lectures (<corpus>_dropped.csv: ids and reasons, no text)
+# are, since Table B1 of the paper is made from them
+data/raw/
+data/prepared/*
+!data/prepared/summary.csv
+!data/prepared/*_dropped.csv
+# Text taken from the lectures, made again from them by scripts: the slide OCR
+# (scripts/ocr.py) and the packs the labelling read (scripts/importance_pack.py)
+data/ocr/
+data/importance/packs/
+# The blind check sheet quotes 100 units and their true slides verbatim, and MCD and
+# Slide-Highlight carry no licence that allows passing their text on;
+# scripts/importance_sample.py draws it again (same seed) into this folder. Its key (ids and
+# labels) stays in git
+data/importance/local/
+
+# Model-built matrices and embedding vectors (similarity/cache.py): 367 MB, over GitHub's
+# 100 MB file limit; rebuilt by scripts/build_similarity.py
+data/similarity_cache.sqlite3*
+
+# Test scratch space
+data/pytest_tmp/
+
+# The box-check sheets show 100 slide images of the corpora, so they stay out of git;
+# scripts/detect_layout.py sheet and sheet_v2 draw them again
+data/attributes/validation_100.pdf
+data/attributes/validation_100_v2.pdf
+
+# IDE settings
+.idea/
+
+# The manuscript is kept outside git
+paper/

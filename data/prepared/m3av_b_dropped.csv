@@ -1,0 +1,36 @@
+corpus,lecture_id,reason,n_slides,detail
+m3av_b,CHI-0A902,fewer_than_5_slides,2,
+m3av_b,CHI-27DBE,fewer_than_5_slides,4,
+m3av_b,CHI-2B665,fewer_than_5_slides,3,
+m3av_b,CHI-475D1,fewer_than_5_slides,3,
+m3av_b,CHI-4FF71,fewer_than_5_slides,1,
+m3av_b,CHI-65558,fewer_than_5_slides,4,
+m3av_b,CHI-946C1,fewer_than_5_slides,4,
+m3av_b,CHI-9814D,fewer_than_5_slides,3,
+m3av_b,CHI-BBE44,fewer_than_5_slides,3,
+m3av_b,CHI-E43A1,no_slides,0,seg_speech_ocr.json is empty
+m3av_b,CHI-EA9B8,fewer_than_5_slides,3,
+m3av_b,CHI-ED60E,fewer_than_5_slides,4,
+m3av_b,CHI-FD8E0,fewer_than_5_slides,2,
+m3av_b,IPP-68329,fewer_than_5_slides,4,
+m3av_b,IPP-954A7,fewer_than_5_slides,1,
+m3av_b,MLS-16C53,fewer_than_5_slides,3,
+m3av_b,MLS-344EC,fewer_than_5_slides,2,
+m3av_b,MLS-468A7,fewer_than_5_slides,4,
+m3av_b,MLS-5242A,fewer_than_5_slides,2,
+m3av_b,MLS-792FC,slide_without_image,10,slides [1] of the kept slides have no image
+m3av_b,MLS-7F8A3,fewer_than_5_slides,4,
+m3av_b,MLS-C123F,fewer_than_5_slides,2,
+m3av_b,MLS-EE7E2,fewer_than_5_slides,4,
+m3av_b,MLS-F74D1,fewer_than_5_slides,2,
+m3av_b,NIH-157F0,slide_without_image,37,slides [36] of the kept slides have no image
+m3av_b,NIH-22AB3,slide_without_image,46,slides [11] of the kept slides have no image
+m3av_b,NIH-41E3F,fewer_than_5_slides,2,
+m3av_b,NIH-85CEA,slide_without_image,27,slides [14] of the kept slides have no image
+m3av_b,NIH-AF1B2,slide_without_image,49,slides [16] of the kept slides have no image
+m3av_b,NIH-C45CB,fewer_than_5_slides,1,
+m3av_b,NIH-F5E14,no_slides,0,seg_speech_ocr.json is empty
+m3av_b,NIH-FECDB,no_slides,0,seg_speech_ocr.json is empty
+m3av_b,Ubi-2DDEE,fewer_than_5_slides,4,
+m3av_b,Ubi-42338,fewer_than_5_slides,4,
+m3av_b,Ubi-FE1DB,fewer_than_5_slides,4,

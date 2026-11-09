@@ -1,0 +1,38 @@
+Step 16 (a): the final run's per-unit predictions (scripts/final_predictions.py)
+
+Recounted from the written files against data/final/methods/<method>.csv.gz (n_correct and n_units per lecture, exact): 31 methods x 140 lectures, 18315 units per method.
+LLM calls paid by the replay: 0 (cache only, no client).
+
+   argmax                     140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   dtw                        140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   multiscale_dtw             140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   needleman_wunsch           140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   gotoh                      140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   drop_dtw                   140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   anchored_dp                140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   semimarkov                 140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   adaptive_prior             140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   dp                         140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   rank_dp                    140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   cohesion_dp                140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   jump_dtw                   140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   forward_backward           140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   softdtw                    140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   pelt                       140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   bocpd                      140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   wbs2                       140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   texttiling                 140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   texttiling_dp              140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   opw                        140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   ot_unbalanced              140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   mbr                        140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   llm_single_call            140 lectures   18315 units  answers from the cache   140  paid 0  differences 0
+   llm_monotone               140 lectures   18315 units  answers from the cache   140  paid 0  differences 0
+   llm_monotone_constrained   140 lectures   18315 units  answers from the cache   140  paid 0  differences 0
+   hierarchical               140 lectures   18315 units  answers from the cache  1541  paid 0  differences 0
+   score_fusion               140 lectures   18315 units  answers from the cache     0  paid 0  differences 0
+   ensemble                   140 lectures   18315 units  answers from the cache   140  paid 0  differences 0
+   llm_rerank_kbest           140 lectures   18315 units  answers from the cache   140  paid 0  differences 0
+   fusion                     140 lectures   18315 units  answers from the cache  1541  paid 0  differences 0
+
+PROBLEMS: 0

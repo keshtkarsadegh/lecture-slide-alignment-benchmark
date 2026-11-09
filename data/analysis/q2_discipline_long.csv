@@ -1,0 +1,156 @@
+axis,level,n,method,kind,accuracy,rank
+discipline,Computer and information sciences,95,score_fusion,non-LLM,72.60129382086633,1
+discipline,Computer and information sciences,95,gotoh,non-LLM,72.38932222603593,2
+discipline,Computer and information sciences,95,adaptive_prior,non-LLM,71.7151847947141,3
+discipline,Computer and information sciences,95,dtw,non-LLM,71.69887543134425,4
+discipline,Computer and information sciences,95,multiscale_dtw,non-LLM,71.60762980458492,5
+discipline,Computer and information sciences,95,ensemble,mixed,71.58827173287759,6
+discipline,Computer and information sciences,95,needleman_wunsch,non-LLM,71.57557810516114,7
+discipline,Computer and information sciences,95,anchored_dp,non-LLM,71.41882730243407,8
+discipline,Computer and information sciences,95,drop_dtw,non-LLM,71.12794088629529,9
+discipline,Computer and information sciences,95,softdtw,non-LLM,70.62550239063897,10
+discipline,Computer and information sciences,95,llm_rerank_kbest,mixed,70.6028885626866,11
+discipline,Computer and information sciences,95,pelt,non-LLM,70.12898210970813,12
+discipline,Computer and information sciences,95,semimarkov,non-LLM,70.1285153417152,13
+discipline,Computer and information sciences,95,cohesion_dp,non-LLM,69.88777598759059,14
+discipline,Computer and information sciences,95,mbr,non-LLM,69.79064044927668,15
+discipline,Computer and information sciences,95,fusion,mixed,69.60327702867039,16
+discipline,Computer and information sciences,95,jump_dtw,non-LLM,69.42759386289221,17
+discipline,Computer and information sciences,95,dp,non-LLM,69.37113489635438,18
+discipline,Computer and information sciences,95,forward_backward,non-LLM,67.80986244047622,19
+discipline,Computer and information sciences,95,rank_dp,non-LLM,64.80182190569299,20
+discipline,Computer and information sciences,95,bocpd,non-LLM,64.35452240310087,21
+discipline,Computer and information sciences,95,ot_unbalanced,non-LLM,63.822232696269005,22
+discipline,Computer and information sciences,95,opw,non-LLM,59.669153679797304,23
+discipline,Computer and information sciences,95,llm_single_call,LLM,58.9449527158436,24
+discipline,Computer and information sciences,95,hierarchical,LLM,54.96910792239495,25
+discipline,Computer and information sciences,95,argmax,non-LLM,53.99245663651306,26
+discipline,Computer and information sciences,95,wbs2,non-LLM,40.77722620806499,27
+discipline,Computer and information sciences,95,llm_monotone,LLM,37.043116686205536,28
+discipline,Computer and information sciences,95,llm_monotone_constrained,LLM,35.84151455096431,29
+discipline,Computer and information sciences,95,texttiling,non-LLM,34.17003603517847,30
+discipline,Computer and information sciences,95,texttiling_dp,non-LLM,33.39508588552796,31
+discipline,Natural sciences (other),13,gotoh,non-LLM,78.03684460717362,1
+discipline,Natural sciences (other),13,score_fusion,non-LLM,77.60154528708699,2
+discipline,Natural sciences (other),13,drop_dtw,non-LLM,77.35890398423042,3
+discipline,Natural sciences (other),13,needleman_wunsch,non-LLM,77.00020378780194,4
+discipline,Natural sciences (other),13,softdtw,non-LLM,76.73971749032454,5
+discipline,Natural sciences (other),13,dtw,non-LLM,76.62133277435852,6
+discipline,Natural sciences (other),13,multiscale_dtw,non-LLM,76.62133277435852,6
+discipline,Natural sciences (other),13,mbr,non-LLM,76.2049050590206,8
+discipline,Natural sciences (other),13,semimarkov,non-LLM,76.09144124247726,9
+discipline,Natural sciences (other),13,adaptive_prior,non-LLM,76.01697901065812,10
+discipline,Natural sciences (other),13,ensemble,mixed,75.9149793375511,11
+discipline,Natural sciences (other),13,llm_rerank_kbest,mixed,75.32240187179174,12
+discipline,Natural sciences (other),13,pelt,non-LLM,75.0214809027335,13
+discipline,Natural sciences (other),13,anchored_dp,non-LLM,70.97966245799317,14
+discipline,Natural sciences (other),13,cohesion_dp,non-LLM,69.08767351703179,15
+discipline,Natural sciences (other),13,jump_dtw,non-LLM,68.86124359728123,16
+discipline,Natural sciences (other),13,fusion,mixed,68.30472290034723,17
+discipline,Natural sciences (other),13,dp,non-LLM,67.60226185917945,18
+discipline,Natural sciences (other),13,bocpd,non-LLM,66.78023169979329,19
+discipline,Natural sciences (other),13,forward_backward,non-LLM,64.47763678043633,20
+discipline,Natural sciences (other),13,ot_unbalanced,non-LLM,59.14787441810385,21
+discipline,Natural sciences (other),13,rank_dp,non-LLM,59.03351266468742,22
+discipline,Natural sciences (other),13,opw,non-LLM,42.42005241571327,23
+discipline,Natural sciences (other),13,argmax,non-LLM,42.09265717239097,24
+discipline,Natural sciences (other),13,hierarchical,LLM,36.881879701659564,25
+discipline,Natural sciences (other),13,wbs2,non-LLM,28.844520719432815,26
+discipline,Natural sciences (other),13,llm_single_call,LLM,27.17108490177505,27
+discipline,Natural sciences (other),13,llm_monotone_constrained,LLM,25.419780208533755,28
+discipline,Natural sciences (other),13,llm_monotone,LLM,20.60122500017785,29
+discipline,Natural sciences (other),13,texttiling_dp,non-LLM,16.812405904002198,30
+discipline,Natural sciences (other),13,texttiling,non-LLM,16.209771892972494,31
+discipline,Engineering and technology,10,anchored_dp,non-LLM,60.71360273454204,1
+discipline,Engineering and technology,10,needleman_wunsch,non-LLM,58.726778647536605,2
+discipline,Engineering and technology,10,gotoh,non-LLM,58.573855404133425,3
+discipline,Engineering and technology,10,dtw,non-LLM,58.09655448082536,4
+discipline,Engineering and technology,10,softdtw,non-LLM,57.99336766762798,5
+discipline,Engineering and technology,10,score_fusion,non-LLM,57.55685038468103,6
+discipline,Engineering and technology,10,mbr,non-LLM,56.597606769870595,7
+discipline,Engineering and technology,10,multiscale_dtw,non-LLM,56.52097296818643,8
+discipline,Engineering and technology,10,ensemble,mixed,56.32201508773581,9
+discipline,Engineering and technology,10,semimarkov,non-LLM,56.110954089590834,10
+discipline,Engineering and technology,10,llm_rerank_kbest,mixed,56.04660096731219,11
+discipline,Engineering and technology,10,drop_dtw,non-LLM,55.70707091374665,12
+discipline,Engineering and technology,10,pelt,non-LLM,55.326300215432504,13
+discipline,Engineering and technology,10,jump_dtw,non-LLM,54.90161628527344,14
+discipline,Engineering and technology,10,adaptive_prior,non-LLM,54.712345367110494,15
+discipline,Engineering and technology,10,fusion,mixed,53.71334663424085,16
+discipline,Engineering and technology,10,dp,non-LLM,53.51881506112436,17
+discipline,Engineering and technology,10,forward_backward,non-LLM,52.91654484268596,18
+discipline,Engineering and technology,10,cohesion_dp,non-LLM,52.496245294506515,19
+discipline,Engineering and technology,10,rank_dp,non-LLM,48.436415657763106,20
+discipline,Engineering and technology,10,ot_unbalanced,non-LLM,47.83709727132943,21
+discipline,Engineering and technology,10,bocpd,non-LLM,47.56675749224753,22
+discipline,Engineering and technology,10,opw,non-LLM,43.73198254130456,23
+discipline,Engineering and technology,10,argmax,non-LLM,39.870207953206446,24
+discipline,Engineering and technology,10,hierarchical,LLM,35.990663157896705,25
+discipline,Engineering and technology,10,llm_single_call,LLM,33.25659803987959,26
+discipline,Engineering and technology,10,llm_monotone,LLM,31.238631481000766,27
+discipline,Engineering and technology,10,wbs2,non-LLM,27.372169152629624,28
+discipline,Engineering and technology,10,texttiling_dp,non-LLM,23.869854676646487,29
+discipline,Engineering and technology,10,llm_monotone_constrained,LLM,21.506868716247677,30
+discipline,Engineering and technology,10,texttiling,non-LLM,20.176766925614466,31
+discipline,Medical and health sciences,12,softdtw,non-LLM,74.18751839831423,1
+discipline,Medical and health sciences,12,semimarkov,non-LLM,73.90888141987051,2
+discipline,Medical and health sciences,12,mbr,non-LLM,73.39715851683486,3
+discipline,Medical and health sciences,12,score_fusion,non-LLM,72.72511606646732,4
+discipline,Medical and health sciences,12,gotoh,non-LLM,72.46473035575058,5
+discipline,Medical and health sciences,12,adaptive_prior,non-LLM,71.96299018887724,6
+discipline,Medical and health sciences,12,llm_rerank_kbest,mixed,71.78358104953382,7
+discipline,Medical and health sciences,12,dtw,non-LLM,71.75530844943783,8
+discipline,Medical and health sciences,12,drop_dtw,non-LLM,71.65481797099018,9
+discipline,Medical and health sciences,12,needleman_wunsch,non-LLM,71.61002699394996,10
+discipline,Medical and health sciences,12,pelt,non-LLM,71.4180867494181,11
+discipline,Medical and health sciences,12,ensemble,mixed,71.40984462517089,12
+discipline,Medical and health sciences,12,anchored_dp,non-LLM,70.22446970395113,13
+discipline,Medical and health sciences,12,multiscale_dtw,non-LLM,66.34900496483318,14
+discipline,Medical and health sciences,12,jump_dtw,non-LLM,64.34950092565471,15
+discipline,Medical and health sciences,12,fusion,mixed,63.78639563912346,16
+discipline,Medical and health sciences,12,cohesion_dp,non-LLM,63.50647896494218,17
+discipline,Medical and health sciences,12,dp,non-LLM,63.00839085575439,18
+discipline,Medical and health sciences,12,forward_backward,non-LLM,59.89894679373194,19
+discipline,Medical and health sciences,12,ot_unbalanced,non-LLM,48.88909225205335,20
+discipline,Medical and health sciences,12,rank_dp,non-LLM,47.110686275084475,21
+discipline,Medical and health sciences,12,bocpd,non-LLM,45.25687657157895,22
+discipline,Medical and health sciences,12,argmax,non-LLM,41.20048176082415,23
+discipline,Medical and health sciences,12,hierarchical,LLM,36.0514239672501,24
+discipline,Medical and health sciences,12,llm_single_call,LLM,34.79811753699505,25
+discipline,Medical and health sciences,12,opw,non-LLM,29.994065917903935,26
+discipline,Medical and health sciences,12,llm_monotone,LLM,19.961338593508128,27
+discipline,Medical and health sciences,12,llm_monotone_constrained,LLM,19.899270720297093,28
+discipline,Medical and health sciences,12,wbs2,non-LLM,15.80621645143024,29
+discipline,Medical and health sciences,12,texttiling_dp,non-LLM,13.27340387262929,30
+discipline,Medical and health sciences,12,texttiling,non-LLM,9.584710231904703,31
+discipline,Social sciences,10,softdtw,non-LLM,78.36794586913182,1
+discipline,Social sciences,10,anchored_dp,non-LLM,77.38078549159155,2
+discipline,Social sciences,10,semimarkov,non-LLM,76.80764547778656,3
+discipline,Social sciences,10,mbr,non-LLM,76.33126586654507,4
+discipline,Social sciences,10,score_fusion,non-LLM,75.48720865667686,5
+discipline,Social sciences,10,multiscale_dtw,non-LLM,74.9052449797575,6
+discipline,Social sciences,10,drop_dtw,non-LLM,74.60691313829551,7
+discipline,Social sciences,10,needleman_wunsch,non-LLM,74.51641540073896,8
+discipline,Social sciences,10,gotoh,non-LLM,74.34609935690403,9
+discipline,Social sciences,10,ensemble,mixed,74.12314168751222,10
+discipline,Social sciences,10,dtw,non-LLM,73.8121275708506,11
+discipline,Social sciences,10,adaptive_prior,non-LLM,73.67939099454138,12
+discipline,Social sciences,10,pelt,non-LLM,72.8794622629423,13
+discipline,Social sciences,10,llm_rerank_kbest,mixed,72.44906831245163,14
+discipline,Social sciences,10,forward_backward,non-LLM,70.9082389091106,15
+discipline,Social sciences,10,jump_dtw,non-LLM,70.6148542185279,16
+discipline,Social sciences,10,bocpd,non-LLM,70.04114437266568,17
+discipline,Social sciences,10,dp,non-LLM,69.62023234632515,18
+discipline,Social sciences,10,cohesion_dp,non-LLM,69.33114272535235,19
+discipline,Social sciences,10,ot_unbalanced,non-LLM,67.68380472789845,20
+discipline,Social sciences,10,fusion,mixed,67.51942838670354,21
+discipline,Social sciences,10,rank_dp,non-LLM,64.70266672768224,22
+discipline,Social sciences,10,opw,non-LLM,58.04117076657176,23
+discipline,Social sciences,10,llm_single_call,LLM,57.18240658973141,24
+discipline,Social sciences,10,argmax,non-LLM,51.78997915745644,25
+discipline,Social sciences,10,hierarchical,LLM,45.7368184532019,26
+discipline,Social sciences,10,llm_monotone,LLM,32.289910289836236,27
+discipline,Social sciences,10,llm_monotone_constrained,LLM,30.818814162034094,28
+discipline,Social sciences,10,texttiling,non-LLM,29.62033568623475,29
+discipline,Social sciences,10,texttiling_dp,non-LLM,25.71262621006563,30
+discipline,Social sciences,10,wbs2,non-LLM,25.408395681031255,31

@@ -1,0 +1,51 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\caption{Q3: at every level of every attribute, the method with the highest and the one with the lowest mean accuracy over the level's test lectures, each with its total seconds per lecture there (compute, similarity tables and LLM, as in Table~\ref{tab:q1}, averaged over the level's lectures). $^\dagger$: the next method of the level (Table~\ref{tab:q2-full}) has the same accuracy to one decimal; the one shown is ahead before rounding.}
+\label{tab:q3}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash\hangindent=1em}p{76pt}rlrrlrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{Highest accuracy} & \multicolumn{3}{c}{Lowest accuracy} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Level & \llap{Lectures} & Method & \llap{\begin{tabular}[b]{@{}r@{}}Accuracy\\(\%)\end{tabular}} & \begin{tabular}[b]{@{}r@{}}Cost\\(s)\end{tabular} & Method & \llap{\begin{tabular}[b]{@{}r@{}}Accuracy\\(\%)\end{tabular}} & \begin{tabular}[b]{@{}r@{}}Cost\\(s)\end{tabular} \\
+\midrule
+All lectures & 140 & Score fusion & 72.2 & 22.9 & TextTiling DP & 28.9 & 4.9 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Slide-text source}} \\
+\quad PDF text layer & 12 & Soft-DTW & 73.8$^\dagger$ & 41.2 & LLM monotone & 10.2 & 12.1 \\
+\quad Corrected OCR (corpus) & 103 & Score fusion & 69.1 & 23.2 & TextTiling DP & 26.3 & 4.3 \\
+\quad Tesseract OCR & 25 & LLM-prior DP & 87.2 & 29.7 & TextTiling & 39.6 & $<$0.1 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Length}} \\
+\quad short & 54 & Adaptive prior & 73.9 & 11.1 & TextTiling & 38.3 & $<$0.1 \\
+\quad medium & 38 & Anchored DP & 72.5 & 22.6 & LLM monotone & 26.8 & 11.1 \\
+\quad long & 48 & Score fusion & 71.5 & 39.6 & TextTiling & 15.0 & $<$0.1 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Picture share}} \\
+\quad low & 58 & Gotoh & 76.6 & 21.3 & TextTiling & 29.2 & $<$0.1 \\
+\quad medium & 42 & Soft-DTW & 72.7 & 24.3 & TextTiling DP & 27.1 & 5.2 \\
+\quad high & 40 & Score fusion & 67.4 & 23.3 & TextTiling & 28.2 & $<$0.1 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Tables}} \\
+\quad none & 69 & Score fusion & 65.6 & 23.3 & TextTiling DP & 26.5 & 5.0 \\
+\quad some & 71 & Gotoh & 78.8 & 22.5 & TextTiling & 27.8 & $<$0.1 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Noise}} \\
+\quad low & 50 & Gotoh & 71.6 & 21.3 & TextTiling DP & 30.7 & 3.6 \\
+\quad medium & 39 & Soft-DTW & 74.0 & 22.2 & TextTiling DP & 24.7 & 4.7 \\
+\quad high & 51 & Gotoh & 73.8 & 24.7 & TextTiling & 27.8 & $<$0.1 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Text density}} \\
+\quad low & 36 & Gotoh & 56.8 & 22.5 & LLM monotone (constrained) & 24.8 & 5.7 \\
+\quad medium & 45 & Gotoh & 78.2$^\dagger$ & 26.4 & TextTiling & 23.2 & $<$0.1 \\
+\quad high & 59 & Soft-DTW & 77.5 & 20.1 & TextTiling DP & 33.0 & 5.2 \\
+\addlinespace
+\multicolumn{8}{@{}l}{\textbf{Discipline}} \\
+\quad Computer science & 95 & Score fusion & 72.6 & 17.5 & TextTiling DP & 33.4 & 3.7 \\
+\quad Natural sciences & 13 & Gotoh & 78.0 & 43.6 & TextTiling & 16.2 & $<$0.1 \\
+\quad Engineering & 10 & Anchored DP & 60.7 & 32.9 & TextTiling & 20.2 & $<$0.1 \\
+\quad Medical & 12 & Soft-DTW & 74.2 & 35.7 & TextTiling & 9.6 & $<$0.1 \\
+\quad Social sciences & 10 & Soft-DTW & 78.4 & 26.1 & WBS2 & 25.4 & 6.1 \\
+\bottomrule
+\end{tabular*}
+\end{table}

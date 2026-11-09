@@ -1,0 +1,43 @@
+code,field,major_field
+1.1,Mathematics,Natural sciences
+1.2,Computer and information sciences,Natural sciences
+1.3,Physical sciences,Natural sciences
+1.4,Chemical sciences,Natural sciences
+1.5,Earth and related environmental sciences,Natural sciences
+1.6,Biological sciences,Natural sciences
+1.7,Other natural sciences,Natural sciences
+2.1,Civil engineering,Engineering and technology
+2.2,"Electrical engineering, electronic engineering, information engineering",Engineering and technology
+2.3,Mechanical engineering,Engineering and technology
+2.4,Chemical engineering,Engineering and technology
+2.5,Materials engineering,Engineering and technology
+2.6,Medical engineering,Engineering and technology
+2.7,Environmental engineering,Engineering and technology
+2.8,Environmental biotechnology,Engineering and technology
+2.9,Industrial biotechnology,Engineering and technology
+2.10,Nano-technology,Engineering and technology
+2.11,Other engineering and technologies,Engineering and technology
+3.1,Basic medicine,Medical and health sciences
+3.2,Clinical medicine,Medical and health sciences
+3.3,Health sciences,Medical and health sciences
+3.4,Medical biotechnology,Medical and health sciences
+3.5,Other medical sciences,Medical and health sciences
+4.1,"Agriculture, forestry, and fisheries",Agricultural sciences
+4.2,Animal and dairy science,Agricultural sciences
+4.3,Veterinary science,Agricultural sciences
+4.4,Agricultural biotechnology,Agricultural sciences
+4.5,Other agricultural sciences,Agricultural sciences
+5.1,Psychology,Social sciences
+5.2,Economics and business,Social sciences
+5.3,Educational sciences,Social sciences
+5.4,Sociology,Social sciences
+5.5,Law,Social sciences
+5.6,Political science,Social sciences
+5.7,Social and economic geography,Social sciences
+5.8,Media and communications,Social sciences
+5.9,Other social sciences,Social sciences
+6.1,History and archaeology,Humanities
+6.2,Languages and literature,Humanities
+6.3,"Philosophy, ethics and religion",Humanities
+6.4,"Art (arts, history of arts, performing arts, music)",Humanities
+6.5,Other humanities,Humanities

@@ -1,0 +1,6 @@
+corpus,text_source,unit_type,ground_truth,images,lectures_available,lectures_kept,lectures_dropped,drop_reasons,slides_before_cap,slides_after_cap,units_before_cap,units_after_cap,lectures_cut,transcripts_cut,units_without_slide,units_empty_text,slides_without_text,images_written,slides_ocr,slides_ocr_empty_text,ocr_mean_conf
+mavils,pdf_text_layer=19;tesseract_ocr=1,sentence,"human sentence-to-slide labels (xlsx, main file per lecture)",yes,21,20,1,no_ground_truth=1,803,652,8743,7220,9,9,3955,0,11,652,21,0,84.52
+m3av_a,corpus_corrected_ocr=538,speech_segment,speech-to-slide-segment times (seg_speech_ocr.json + word times),yes,572,538,34,fewer_than_5_slides=27;no_slides=3;slide_without_image=4,12015,10313,74147,64653,97,97,6043,0,0,10313,0,0,
+m3av_b,corpus_corrected_ocr=536,speech_segment,speech-to-slide-segment times (seg_speech_ocr.json + word times),yes,571,536,35,fewer_than_5_slides=27;no_slides=3;slide_without_image=5,11513,10152,72298,63740,83,83,5921,0,0,10152,0,0,
+mcd,tesseract_ocr=23,transcript_line,file-name pairing slides/sp_X_k.png <-> trans/sp_X_k.txt,yes,25,23,2,fewer_than_5_slides=2,250,250,736,736,0,0,0,0,0,250,250,0,79.36
+slide_highlight,tesseract_ocr=14,subtitle_cue,file-name pairing PART_k_id.png <-> PART_k_id.srt,yes,14,14,0,,150,150,556,556,0,0,0,0,0,150,150,0,82.77

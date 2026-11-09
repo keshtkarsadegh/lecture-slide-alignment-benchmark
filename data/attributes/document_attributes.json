@@ -1,0 +1,313 @@
+{
+ "created": "2026-10-12T00:53:42+00:00",
+ "columns": [
+  "corpus",
+  "lecture_id",
+  "text_source",
+  "n_slides",
+  "n_units",
+  "n_transcript_words",
+  "image_pct",
+  "table_pct",
+  "noise",
+  "text_density",
+  "discipline"
+ ],
+ "definitions": {
+  "image_pct": "100 * sum over slides of the area of the union of the kept 'picture' boxes / sum over slides of width*height (full image); M3AV images are video frames. Dropped: a picture box with a picture box at IoU >= repeat_iou (normalised coordinates) on >= repeat_share of the lecture's slides (its own slide included), then a picture box under tiny_pct % of its slide's area",
+  "table_pct": "the same for 'table' boxes",
+  "noise": "100 * tokens not in the word list / all tokens, pooled over the lecture's slides; token = maximal run of A-Za-z, lowercased, length >= 2",
+  "text_density": "sum over slides of whitespace tokens with a letter or digit, / n_slides",
+  "n_transcript_words": "sum over kept units of whitespace-separated tokens",
+  "discipline": "OECD FOS 2007 second-level field (scripts/assign_discipline.py)"
+ },
+ "layout_threshold": 0.6,
+ "picture_filter": {
+  "repeat_share": 0.5,
+  "repeat_iou": 0.7,
+  "tiny_pct": 1.0
+ },
+ "pictures_dropped": {
+  "mavils": {
+   "repeat": 133,
+   "tiny": 54
+  },
+  "m3av_a": {
+   "repeat": 9427,
+   "tiny": 3367
+  },
+  "m3av_b": {
+   "repeat": 9417,
+   "tiny": 3179
+  },
+  "mcd": {
+   "repeat": 107,
+   "tiny": 33
+  },
+  "slide_highlight": {
+   "repeat": 175,
+   "tiny": 72
+  }
+ },
+ "wordlist": {
+  "path": "config/wordlist_en_scowl70.txt.gz",
+  "words": 131341,
+  "sha256": "facd445dd4e8639226b72893a30115e4e4ee99759665c539aeae00e37a507500"
+ },
+ "inputs": {
+  "layout_boxes": "e474cb0eabdcf8305db00653d1f137742853b276e3b0864036e336dc60fb14a4",
+  "discipline": "58130cee4ba7373e5475ffadca04b2029d5ca327ddd3df4ffcc002518ef5d318",
+  "prepared/mavils.jsonl.gz": "254c95cf10dde173d3f641ed47f92ea7514a894811972690b9504495a5b99138",
+  "prepared/m3av_a.jsonl.gz": "6c46b78ac158bbe94bb67452251367d5aca9d2c169cb6e8c303a26d6541aec06",
+  "prepared/m3av_b.jsonl.gz": "cf3400c668ef3a16bf959a450e8a11a088e85b4e99253afdfcfa485ce6e170cf",
+  "prepared/mcd.jsonl.gz": "d181e56a2a61cee47f61f8999fe17eeeb8e6e5f17a4b1995b228314b747c22a7",
+  "prepared/slide_highlight.jsonl.gz": "aea7b565b8d13eb2d554ab08037af8ad7f065a7e39acf4c600e6a7dfd939415f"
+ },
+ "discipline_status": "assigned",
+ "rows": 1131,
+ "summary": {
+  "mavils": {
+   "lectures": 20,
+   "image_pct": {
+    "median": 14.1424,
+    "min": 2.0848,
+    "max": 37.7014
+   },
+   "table_pct": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 9.7977
+   },
+   "noise": {
+    "median": 9.624500000000001,
+    "min": 1.8455,
+    "max": 16.3142
+   },
+   "text_density": {
+    "median": 42.2,
+    "min": 8.03,
+    "max": 94.93
+   },
+   "n_slides": {
+    "median": 38.5,
+    "min": 12,
+    "max": 40
+   },
+   "n_units": {
+    "median": 327.5,
+    "min": 55,
+    "max": 1002
+   },
+   "n_transcript_words": {
+    "median": 5821.0,
+    "min": 458,
+    "max": 15432
+   },
+   "discipline": {
+    "Computer and information sciences": 8,
+    "Earth and related environmental sciences": 3,
+    "Psychology": 3,
+    "Physical sciences": 2,
+    "Health sciences": 1,
+    "Economics and business": 1,
+    "Basic medicine": 1,
+    "Civil engineering": 1
+   }
+  },
+  "m3av_a": {
+   "lectures": 538,
+   "image_pct": {
+    "median": 21.15955,
+    "min": 0.0,
+    "max": 63.0691
+   },
+   "table_pct": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 14.8241
+   },
+   "noise": {
+    "median": 9.3845,
+    "min": 1.1132,
+    "max": 43.2203
+   },
+   "text_density": {
+    "median": 36.315,
+    "min": 8.27,
+    "max": 163.84
+   },
+   "n_slides": {
+    "median": 14.0,
+    "min": 5,
+    "max": 40
+   },
+   "n_units": {
+    "median": 40.0,
+    "min": 10,
+    "max": 636
+   },
+   "n_transcript_words": {
+    "median": 793.0,
+    "min": 190,
+    "max": 12704
+   },
+   "discipline": {
+    "Computer and information sciences": 354,
+    "Biological sciences": 55,
+    "Health sciences": 45,
+    "Mathematics": 21,
+    "Medical biotechnology": 16,
+    "Psychology": 14,
+    "Electrical engineering, electronic engineering, information engineering": 11,
+    "Clinical medicine": 6,
+    "Nano-technology": 4,
+    "Basic medicine": 4,
+    "Other social sciences": 3,
+    "Physical sciences": 3,
+    "Other engineering and technologies": 1,
+    "Economics and business": 1
+   }
+  },
+  "m3av_b": {
+   "lectures": 536,
+   "image_pct": {
+    "median": 19.637050000000002,
+    "min": 0.0,
+    "max": 61.531
+   },
+   "table_pct": {
+    "median": 0.0,
+    "min": 0.0,
+    "max": 13.2984
+   },
+   "noise": {
+    "median": 8.863150000000001,
+    "min": 0.0,
+    "max": 45.4851
+   },
+   "text_density": {
+    "median": 37.644999999999996,
+    "min": 5.46,
+    "max": 197.33
+   },
+   "n_slides": {
+    "median": 15.0,
+    "min": 5,
+    "max": 40
+   },
+   "n_units": {
+    "median": 40.0,
+    "min": 10,
+    "max": 607
+   },
+   "n_transcript_words": {
+    "median": 798.0,
+    "min": 216,
+    "max": 12017
+   },
+   "discipline": {
+    "Computer and information sciences": 344,
+    "Biological sciences": 71,
+    "Health sciences": 43,
+    "Mathematics": 20,
+    "Psychology": 13,
+    "Electrical engineering, electronic engineering, information engineering": 12,
+    "Medical biotechnology": 12,
+    "Nano-technology": 5,
+    "Basic medicine": 4,
+    "Other engineering and technologies": 3,
+    "Educational sciences": 2,
+    "Mechanical engineering": 1,
+    "Media and communications": 1,
+    "Other social sciences": 1,
+    "Economics and business": 1,
+    "Clinical medicine": 1,
+    "Chemical sciences": 1,
+    "Medical engineering": 1
+   }
+  },
+  "mcd": {
+   "lectures": 23,
+   "image_pct": {
+    "median": 9.9309,
+    "min": 1.6644,
+    "max": 31.7235
+   },
+   "table_pct": {
+    "median": 4.982,
+    "min": 0.0,
+    "max": 22.7416
+   },
+   "noise": {
+    "median": 13.6126,
+    "min": 4.5699,
+    "max": 25.3438
+   },
+   "text_density": {
+    "median": 87.62,
+    "min": 49.14,
+    "max": 167.56
+   },
+   "n_slides": {
+    "median": 11,
+    "min": 7,
+    "max": 19
+   },
+   "n_units": {
+    "median": 33,
+    "min": 21,
+    "max": 43
+   },
+   "n_transcript_words": {
+    "median": 563,
+    "min": 339,
+    "max": 727
+   },
+   "discipline": {
+    "Computer and information sciences": 22,
+    "Mathematics": 1
+   }
+  },
+  "slide_highlight": {
+   "lectures": 14,
+   "image_pct": {
+    "median": 13.32935,
+    "min": 0.0,
+    "max": 35.6308
+   },
+   "table_pct": {
+    "median": 3.2455,
+    "min": 0.0,
+    "max": 8.894
+   },
+   "noise": {
+    "median": 13.12645,
+    "min": 8.4024,
+    "max": 24.1164
+   },
+   "text_density": {
+    "median": 74.89500000000001,
+    "min": 38.75,
+    "max": 157.55
+   },
+   "n_slides": {
+    "median": 11.0,
+    "min": 5,
+    "max": 18
+   },
+   "n_units": {
+    "median": 39.5,
+    "min": 18,
+    "max": 61
+   },
+   "n_transcript_words": {
+    "median": 677.0,
+    "min": 290,
+    "max": 895
+   },
+   "discipline": {
+    "Computer and information sciences": 14
+   }
+  }
+ }
+}

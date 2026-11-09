@@ -1,0 +1,9 @@
+measure,lectures,load_s,loads,compute_s,wall_s,requests,request_s,wait_s_ignored,failed_attempts_ignored,failed_s_ignored,hardware,deps,cost_with_deps_s
+bm25,140,0.000,1,0.999,0.999,0,0.000,0.000,0,0.000,CPU Intel(R) Xeon(R) Platinum 8468 (192 cores),,0.999
+embed,140,0.000,1,688.211,1137.123,284,679.679,448.912,0,0.000,OpenAI-compatible endpoint (qwen3-embedding-4b); client CPU Intel(R) Xeon(R) Platinum 8468 (192 cores),,688.211
+hybrid,140,0.000,1,1.899,1.899,0,0.000,0.000,0,0.000,CPU Intel(R) Xeon(R) Platinum 8468 (192 cores),embed bm25,691.109
+splade,140,5.093,1,33.274,33.274,0,0.000,0.000,0,0.000,GPU NVIDIA A100-SXM4-80GB MIG 3g.40gb; CPU AMD EPYC 7513 32-Core Processor (8 cores),,38.367
+image,140,2.252,1,3178.781,3178.781,0,0.000,0.000,0,0.000,GPU NVIDIA A100-SXM4-80GB MIG 3g.40gb; CPU AMD EPYC 7513 32-Core Processor (8 cores),,3181.033
+cross_encoder,140,0.148,1,92.823,92.823,0,0.000,0.000,0,0.000,GPU NVIDIA A100-SXM4-80GB MIG 3g.40gb; CPU AMD EPYC 7513 32-Core Processor (8 cores),hybrid,784.080
+hybrid_splade,140,0.000,1,2.408,2.408,0,0.000,0.000,0,0.000,CPU Intel(R) Xeon(R) Platinum 8468 (192 cores),embed splade,728.986
+hybrid_image,140,0.000,1,2.389,2.389,0,0.000,0.000,0,0.000,CPU Intel(R) Xeon(R) Platinum 8468 (192 cores),embed bm25 image,3872.633

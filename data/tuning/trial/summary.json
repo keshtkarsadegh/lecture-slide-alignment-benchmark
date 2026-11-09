@@ -1,0 +1,17 @@
+{
+ "failed_attempts": 0,
+ "failed_calls": 0,
+ "largest_item_hours": 0.2851368362456559,
+ "matrix_cpu_hours": 7.91032385225241,
+ "matrix_wall_hours": 0.3955161926126205,
+ "mean_call_seconds": {
+  "hierarchical": 2.0230263073415955,
+  "llm_monotone": 1.366710640490055,
+  "llm_monotone_constrained": 1.9555312439333647,
+  "llm_rerank_kbest": 0.35073311207816005,
+  "llm_single_call": 7.309067257679999
+ },
+ "paid_calls": 25,
+ "paid_seconds": 81.2665622998029,
+ "tasks": 20
+}

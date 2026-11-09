@@ -1,0 +1,201 @@
+corpus,lecture_id,set,text_source,length,images,tables,noise,text_density,discipline
+mavils,ML_for_health_MIT,tuning,pdf_text_layer,long,high,some,medium,medium,Medical and health sciences
+mavils,climate_and_cities,tuning,pdf_text_layer,long,medium,none,medium,medium,Natural sciences (other)
+mavils,climate_science_policy_MIT,tuning,pdf_text_layer,long,medium,none,low,high,Natural sciences (other)
+mavils,psychology_MIT,tuning,pdf_text_layer,long,low,none,low,low,Social sciences
+mavils,sensory_systems_MIT,tuning,pdf_text_layer,long,medium,none,medium,low,Medical and health sciences
+mavils,solar_resource,tuning,pdf_text_layer,long,high,none,medium,medium,Natural sciences (other)
+mavils,team_dynamics_game_design_MIT,tuning,pdf_text_layer,long,low,none,low,low,Social sciences
+m3av_a,CHI-1F1FF,tuning,corpus_corrected_ocr,medium,medium,none,medium,low,Social sciences
+m3av_a,CHI-26CA3,tuning,corpus_corrected_ocr,medium,medium,none,medium,medium,Computer and information sciences
+m3av_a,CHI-30F23,tuning,corpus_corrected_ocr,long,low,some,low,medium,Computer and information sciences
+m3av_a,CHI-318AC,tuning,corpus_corrected_ocr,short,medium,none,high,medium,Engineering and technology
+m3av_a,CHI-73CD1,tuning,corpus_corrected_ocr,long,high,none,high,low,Engineering and technology
+m3av_a,CHI-75B87,tuning,corpus_corrected_ocr,short,high,none,high,medium,Social sciences
+m3av_a,CHI-8670C,tuning,corpus_corrected_ocr,short,low,some,low,high,Computer and information sciences
+m3av_a,CHI-A17BF,tuning,corpus_corrected_ocr,short,low,none,medium,medium,Computer and information sciences
+m3av_a,CHI-A94E5,tuning,corpus_corrected_ocr,short,low,some,low,high,Computer and information sciences
+m3av_a,CHI-DAB4C,tuning,corpus_corrected_ocr,short,medium,some,low,high,Computer and information sciences
+m3av_a,CHI-DCFBE,tuning,corpus_corrected_ocr,medium,medium,none,low,high,Computer and information sciences
+m3av_a,IPP-539E9,tuning,corpus_corrected_ocr,long,low,some,low,high,Medical and health sciences
+m3av_a,IPP-8359A,tuning,corpus_corrected_ocr,short,low,none,low,high,Social sciences
+m3av_a,IPP-EB41F,tuning,corpus_corrected_ocr,medium,low,none,low,high,Medical and health sciences
+m3av_a,MLS-88811,tuning,corpus_corrected_ocr,short,low,none,medium,high,Natural sciences (other)
+m3av_a,MLS-99ECF,tuning,corpus_corrected_ocr,medium,low,none,low,high,Natural sciences (other)
+m3av_a,NIH-7BE36,tuning,corpus_corrected_ocr,long,low,none,high,medium,Natural sciences (other)
+m3av_a,Ubi-364B9,tuning,corpus_corrected_ocr,short,high,some,high,medium,Computer and information sciences
+m3av_a,Ubi-65272,tuning,corpus_corrected_ocr,short,medium,none,low,high,Computer and information sciences
+m3av_a,Ubi-B1B15,tuning,corpus_corrected_ocr,medium,high,some,high,high,Computer and information sciences
+m3av_b,CHI-19C60,tuning,corpus_corrected_ocr,medium,high,none,medium,low,Computer and information sciences
+m3av_b,CHI-38412,tuning,corpus_corrected_ocr,long,high,some,low,low,Computer and information sciences
+m3av_b,CHI-3BF4D,tuning,corpus_corrected_ocr,long,high,none,medium,low,Computer and information sciences
+m3av_b,CHI-5AB62,tuning,corpus_corrected_ocr,short,high,none,low,medium,Computer and information sciences
+m3av_b,CHI-688A8,tuning,corpus_corrected_ocr,medium,medium,none,medium,low,Computer and information sciences
+m3av_b,CHI-7AC32,tuning,corpus_corrected_ocr,short,high,none,low,low,Computer and information sciences
+m3av_b,CHI-9FE9C,tuning,corpus_corrected_ocr,short,low,none,low,high,Computer and information sciences
+m3av_b,CHI-B8ACB,tuning,corpus_corrected_ocr,short,low,none,medium,high,Computer and information sciences
+m3av_b,CHI-C3244,tuning,corpus_corrected_ocr,short,high,some,high,low,Computer and information sciences
+m3av_b,CHI-D36A1,tuning,corpus_corrected_ocr,short,medium,none,high,low,Engineering and technology
+m3av_b,CHI-DDD10,tuning,corpus_corrected_ocr,short,low,none,high,low,Computer and information sciences
+m3av_b,CHI-ECB31,tuning,corpus_corrected_ocr,short,high,none,low,low,Engineering and technology
+m3av_b,CHI-F30AD,tuning,corpus_corrected_ocr,medium,low,none,high,medium,Computer and information sciences
+m3av_b,IPP-A2A7C,tuning,corpus_corrected_ocr,long,low,none,low,low,Medical and health sciences
+m3av_b,MLS-E7B23,tuning,corpus_corrected_ocr,medium,low,none,high,high,Natural sciences (other)
+m3av_b,NIH-1DAF1,tuning,corpus_corrected_ocr,long,low,some,high,high,Natural sciences (other)
+m3av_b,NIH-5EE7D,tuning,corpus_corrected_ocr,long,high,some,high,medium,Medical and health sciences
+m3av_b,Ubi-0ABD7,tuning,corpus_corrected_ocr,medium,medium,some,high,high,Computer and information sciences
+m3av_b,Ubi-479CC,tuning,corpus_corrected_ocr,medium,high,some,medium,medium,Computer and information sciences
+m3av_b,Ubi-F2159,tuning,corpus_corrected_ocr,medium,medium,none,high,low,Engineering and technology
+mcd,sp_0046,tuning,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_0132,tuning,tesseract_ocr,short,high,some,high,high,Computer and information sciences
+mcd,sp_0171,tuning,tesseract_ocr,short,low,some,low,high,Computer and information sciences
+mcd,sp_0358,tuning,tesseract_ocr,medium,low,some,high,high,Computer and information sciences
+mcd,sp_0503,tuning,tesseract_ocr,short,low,some,high,high,Natural sciences (other)
+mcd,sp_0814,tuning,tesseract_ocr,medium,low,some,high,high,Computer and information sciences
+mcd,sp_1402,tuning,tesseract_ocr,short,medium,some,high,high,Computer and information sciences
+mcd,sp_2275,tuning,tesseract_ocr,medium,medium,some,high,high,Computer and information sciences
+slide_highlight,ICML_vid_0568,tuning,tesseract_ocr,medium,high,none,medium,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0054,tuning,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0068,tuning,tesseract_ocr,short,high,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0098,tuning,tesseract_ocr,medium,medium,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0173,tuning,tesseract_ocr,short,low,none,medium,medium,Computer and information sciences
+mavils,cities_and_decarbonization,test,pdf_text_layer,long,low,some,high,medium,Natural sciences (other)
+mavils,cognitive_robotics_MIT,test,pdf_text_layer,long,medium,some,medium,low,Computer and information sciences
+mavils,computer_vision_2_2,test,pdf_text_layer,medium,medium,none,medium,high,Computer and information sciences
+mavils,creating_breakthrough_products_MIT,test,pdf_text_layer,long,low,some,low,high,Social sciences
+mavils,cryptocurrency_MIT,test,pdf_text_layer,long,medium,none,high,low,Computer and information sciences
+mavils,deeplearning_goodfellow,test,pdf_text_layer,long,low,none,medium,medium,Computer and information sciences
+mavils,image_processing,test,tesseract_ocr,long,medium,some,high,medium,Computer and information sciences
+mavils,numerics,test,pdf_text_layer,long,low,none,high,high,Computer and information sciences
+mavils,phonetics,test,pdf_text_layer,long,low,some,medium,low,Social sciences
+mavils,physics_intro_02,test,pdf_text_layer,long,low,none,low,high,Natural sciences (other)
+mavils,reinforcement_learning_silver,test,pdf_text_layer,long,low,none,low,high,Computer and information sciences
+mavils,short_range_mit,test,pdf_text_layer,long,low,some,low,high,Engineering and technology
+mavils,theory_of_computation_MIT,test,pdf_text_layer,short,low,none,medium,high,Computer and information sciences
+m3av_a,CHI-04664,test,corpus_corrected_ocr,short,medium,none,medium,medium,Computer and information sciences
+m3av_a,CHI-051B1,test,corpus_corrected_ocr,medium,high,some,low,low,Engineering and technology
+m3av_a,CHI-17856,test,corpus_corrected_ocr,short,high,none,high,medium,Computer and information sciences
+m3av_a,CHI-1CDD0,test,corpus_corrected_ocr,medium,low,some,low,medium,Computer and information sciences
+m3av_a,CHI-26AF6,test,corpus_corrected_ocr,medium,high,none,medium,high,Computer and information sciences
+m3av_a,CHI-35720,test,corpus_corrected_ocr,medium,high,none,low,low,Social sciences
+m3av_a,CHI-3AA26,test,corpus_corrected_ocr,short,medium,none,low,high,Computer and information sciences
+m3av_a,CHI-446DD,test,corpus_corrected_ocr,short,high,none,low,low,Computer and information sciences
+m3av_a,CHI-451BE,test,corpus_corrected_ocr,medium,high,none,low,low,Computer and information sciences
+m3av_a,CHI-53FC7,test,corpus_corrected_ocr,short,low,some,low,medium,Computer and information sciences
+m3av_a,CHI-5C0B8,test,corpus_corrected_ocr,medium,low,some,low,medium,Computer and information sciences
+m3av_a,CHI-64DE5,test,corpus_corrected_ocr,short,medium,none,low,medium,Computer and information sciences
+m3av_a,CHI-66B82,test,corpus_corrected_ocr,short,high,none,high,medium,Computer and information sciences
+m3av_a,CHI-72511,test,corpus_corrected_ocr,long,high,none,low,medium,Computer and information sciences
+m3av_a,CHI-808A2,test,corpus_corrected_ocr,short,low,none,high,low,Computer and information sciences
+m3av_a,CHI-84822,test,corpus_corrected_ocr,medium,low,some,medium,high,Computer and information sciences
+m3av_a,CHI-85703,test,corpus_corrected_ocr,short,low,none,medium,medium,Computer and information sciences
+m3av_a,CHI-8BF72,test,corpus_corrected_ocr,short,low,none,low,medium,Computer and information sciences
+m3av_a,CHI-97EA3,test,corpus_corrected_ocr,medium,low,none,low,medium,Computer and information sciences
+m3av_a,CHI-98CF8,test,corpus_corrected_ocr,short,low,none,low,low,Computer and information sciences
+m3av_a,CHI-A1C41,test,corpus_corrected_ocr,medium,high,none,low,low,Computer and information sciences
+m3av_a,CHI-A51B5,test,corpus_corrected_ocr,medium,high,none,low,low,Engineering and technology
+m3av_a,CHI-AB071,test,corpus_corrected_ocr,short,low,none,medium,low,Computer and information sciences
+m3av_a,CHI-B20B0,test,corpus_corrected_ocr,long,low,none,low,low,Computer and information sciences
+m3av_a,CHI-B870E,test,corpus_corrected_ocr,medium,medium,some,medium,medium,Computer and information sciences
+m3av_a,CHI-BE876,test,corpus_corrected_ocr,long,high,some,low,low,Computer and information sciences
+m3av_a,CHI-CE718,test,corpus_corrected_ocr,medium,medium,some,low,high,Computer and information sciences
+m3av_a,CHI-EAC85,test,corpus_corrected_ocr,medium,medium,some,medium,high,Computer and information sciences
+m3av_a,CHI-F089C,test,corpus_corrected_ocr,short,high,some,low,medium,Computer and information sciences
+m3av_a,CHI-FDB72,test,corpus_corrected_ocr,short,medium,some,low,high,Computer and information sciences
+m3av_a,CHI-FF3C3,test,corpus_corrected_ocr,short,high,none,medium,low,Computer and information sciences
+m3av_a,IPP-A21D2,test,corpus_corrected_ocr,long,low,some,low,high,Medical and health sciences
+m3av_a,MLS-C96FD,test,corpus_corrected_ocr,short,low,none,high,high,Natural sciences (other)
+m3av_a,MLS-E8022,test,corpus_corrected_ocr,medium,medium,none,high,low,Natural sciences (other)
+m3av_a,NIH-0309C,test,corpus_corrected_ocr,long,medium,some,high,high,Computer and information sciences
+m3av_a,NIH-1419E,test,corpus_corrected_ocr,long,low,none,medium,medium,Natural sciences (other)
+m3av_a,NIH-2B06D,test,corpus_corrected_ocr,long,medium,none,high,medium,Natural sciences (other)
+m3av_a,NIH-5A312,test,corpus_corrected_ocr,long,medium,none,high,low,Medical and health sciences
+m3av_a,NIH-64B86,test,corpus_corrected_ocr,long,high,some,medium,medium,Engineering and technology
+m3av_a,NIH-6CC38,test,corpus_corrected_ocr,long,high,some,low,medium,Medical and health sciences
+m3av_a,NIH-814B9,test,corpus_corrected_ocr,long,low,some,medium,high,Social sciences
+m3av_a,NIH-93AC3,test,corpus_corrected_ocr,long,high,none,high,medium,Natural sciences (other)
+m3av_a,NIH-A9D8B,test,corpus_corrected_ocr,long,high,none,medium,low,Computer and information sciences
+m3av_a,NIH-B9D3A,test,corpus_corrected_ocr,long,medium,some,medium,low,Medical and health sciences
+m3av_a,NIH-E918C,test,corpus_corrected_ocr,long,high,none,high,high,Medical and health sciences
+m3av_a,NIH-EA0B1,test,corpus_corrected_ocr,long,high,none,high,medium,Medical and health sciences
+m3av_a,NIH-FDE28,test,corpus_corrected_ocr,long,medium,none,high,low,Social sciences
+m3av_a,Ubi-5F757,test,corpus_corrected_ocr,medium,low,some,low,medium,Computer and information sciences
+m3av_a,Ubi-8E1A5,test,corpus_corrected_ocr,short,medium,some,medium,medium,Computer and information sciences
+m3av_a,Ubi-90F7A,test,corpus_corrected_ocr,medium,medium,some,low,high,Engineering and technology
+m3av_a,Ubi-97A0E,test,corpus_corrected_ocr,medium,high,some,low,medium,Computer and information sciences
+m3av_a,Ubi-C360A,test,corpus_corrected_ocr,medium,low,some,high,medium,Computer and information sciences
+m3av_b,CHI-03E0E,test,corpus_corrected_ocr,short,high,none,medium,medium,Computer and information sciences
+m3av_b,CHI-14BC1,test,corpus_corrected_ocr,short,low,none,medium,high,Computer and information sciences
+m3av_b,CHI-243D8,test,corpus_corrected_ocr,medium,high,none,high,low,Computer and information sciences
+m3av_b,CHI-2483D,test,corpus_corrected_ocr,long,high,none,medium,low,Engineering and technology
+m3av_b,CHI-24F31,test,corpus_corrected_ocr,short,high,none,high,medium,Computer and information sciences
+m3av_b,CHI-27F3D,test,corpus_corrected_ocr,short,low,some,low,high,Computer and information sciences
+m3av_b,CHI-33DCE,test,corpus_corrected_ocr,medium,low,some,high,medium,Computer and information sciences
+m3av_b,CHI-34A79,test,corpus_corrected_ocr,long,high,none,medium,low,Engineering and technology
+m3av_b,CHI-3755A,test,corpus_corrected_ocr,short,low,none,low,high,Computer and information sciences
+m3av_b,CHI-3A30E,test,corpus_corrected_ocr,medium,low,none,medium,medium,Computer and information sciences
+m3av_b,CHI-43811,test,corpus_corrected_ocr,short,low,none,low,high,Computer and information sciences
+m3av_b,CHI-46098,test,corpus_corrected_ocr,medium,high,none,low,medium,Computer and information sciences
+m3av_b,CHI-4854E,test,corpus_corrected_ocr,medium,medium,some,low,low,Computer and information sciences
+m3av_b,CHI-49217,test,corpus_corrected_ocr,medium,medium,none,high,low,Computer and information sciences
+m3av_b,CHI-50F4F,test,corpus_corrected_ocr,medium,medium,none,low,high,Computer and information sciences
+m3av_b,CHI-606EC,test,corpus_corrected_ocr,medium,high,none,low,low,Computer and information sciences
+m3av_b,CHI-6D38F,test,corpus_corrected_ocr,short,low,none,low,low,Engineering and technology
+m3av_b,CHI-817AA,test,corpus_corrected_ocr,medium,medium,some,low,high,Computer and information sciences
+m3av_b,CHI-8AEDC,test,corpus_corrected_ocr,short,low,none,medium,high,Computer and information sciences
+m3av_b,CHI-8D616,test,corpus_corrected_ocr,medium,medium,none,medium,medium,Computer and information sciences
+m3av_b,CHI-91486,test,corpus_corrected_ocr,short,high,some,low,medium,Computer and information sciences
+m3av_b,CHI-957F3,test,corpus_corrected_ocr,short,high,none,low,high,Social sciences
+m3av_b,CHI-95C81,test,corpus_corrected_ocr,short,low,some,low,high,Computer and information sciences
+m3av_b,CHI-9888A,test,corpus_corrected_ocr,short,low,none,high,low,Social sciences
+m3av_b,CHI-99E3F,test,corpus_corrected_ocr,short,medium,none,low,medium,Computer and information sciences
+m3av_b,CHI-9BE5C,test,corpus_corrected_ocr,short,medium,some,high,low,Computer and information sciences
+m3av_b,CHI-AEF7B,test,corpus_corrected_ocr,medium,high,none,low,high,Computer and information sciences
+m3av_b,CHI-BAB29,test,corpus_corrected_ocr,long,medium,none,low,low,Engineering and technology
+m3av_b,CHI-C42A8,test,corpus_corrected_ocr,long,low,none,medium,medium,Computer and information sciences
+m3av_b,CHI-CBFDA,test,corpus_corrected_ocr,medium,high,none,high,low,Computer and information sciences
+m3av_b,CHI-CCD7C,test,corpus_corrected_ocr,medium,medium,some,low,high,Computer and information sciences
+m3av_b,CHI-D38C1,test,corpus_corrected_ocr,long,low,none,medium,medium,Computer and information sciences
+m3av_b,CHI-E01A7,test,corpus_corrected_ocr,long,medium,none,medium,low,Computer and information sciences
+m3av_b,CHI-E4274,test,corpus_corrected_ocr,short,low,none,low,high,Social sciences
+m3av_b,CHI-F0DA2,test,corpus_corrected_ocr,short,medium,some,medium,high,Computer and information sciences
+m3av_b,CHI-FFB1A,test,corpus_corrected_ocr,medium,high,some,low,medium,Social sciences
+m3av_b,IPP-7DD51,test,corpus_corrected_ocr,long,medium,some,low,medium,Medical and health sciences
+m3av_b,IPP-9EF18,test,corpus_corrected_ocr,long,low,some,low,low,Social sciences
+m3av_b,IPP-A9280,test,corpus_corrected_ocr,long,low,some,low,medium,Medical and health sciences
+m3av_b,NIH-215F4,test,corpus_corrected_ocr,long,high,some,high,low,Medical and health sciences
+m3av_b,NIH-4FA68,test,corpus_corrected_ocr,long,high,none,high,medium,Natural sciences (other)
+m3av_b,NIH-53111,test,corpus_corrected_ocr,long,medium,some,high,medium,Natural sciences (other)
+m3av_b,NIH-5F270,test,corpus_corrected_ocr,long,medium,none,high,medium,Medical and health sciences
+m3av_b,NIH-9AC5E,test,corpus_corrected_ocr,long,medium,none,high,medium,Natural sciences (other)
+m3av_b,NIH-B404C,test,corpus_corrected_ocr,long,high,none,high,low,Medical and health sciences
+m3av_b,NIH-C68D7,test,corpus_corrected_ocr,long,low,some,medium,high,Natural sciences (other)
+m3av_b,NIH-C7721,test,corpus_corrected_ocr,long,medium,none,high,low,Engineering and technology
+m3av_b,NIH-CF017,test,corpus_corrected_ocr,long,high,some,high,high,Natural sciences (other)
+m3av_b,NIH-E2402,test,corpus_corrected_ocr,long,high,some,high,medium,Medical and health sciences
+m3av_b,NIH-EC45B,test,corpus_corrected_ocr,long,medium,some,high,high,Natural sciences (other)
+m3av_b,Ubi-6192D,test,corpus_corrected_ocr,medium,high,some,medium,medium,Computer and information sciences
+mcd,sp_0006,test,tesseract_ocr,short,medium,some,high,high,Computer and information sciences
+mcd,sp_0016,test,tesseract_ocr,medium,low,none,medium,high,Computer and information sciences
+mcd,sp_0318,test,tesseract_ocr,medium,medium,some,high,high,Computer and information sciences
+mcd,sp_0440,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_0457,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_0525,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_0580,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_0674,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_1048,test,tesseract_ocr,medium,low,some,medium,high,Computer and information sciences
+mcd,sp_1125,test,tesseract_ocr,short,low,some,medium,high,Computer and information sciences
+mcd,sp_1265,test,tesseract_ocr,short,medium,some,high,high,Computer and information sciences
+mcd,sp_1317,test,tesseract_ocr,short,high,some,high,high,Computer and information sciences
+mcd,sp_2020,test,tesseract_ocr,short,medium,some,high,high,Computer and information sciences
+mcd,sp_2036,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+mcd,sp_2317,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+slide_highlight,ICML_vid_0021,test,tesseract_ocr,short,low,some,medium,high,Computer and information sciences
+slide_highlight,ICML_vid_0071,test,tesseract_ocr,medium,low,some,high,high,Computer and information sciences
+slide_highlight,ICML_vid_0131,test,tesseract_ocr,short,medium,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0086,test,tesseract_ocr,short,high,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0113,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0146,test,tesseract_ocr,short,low,some,high,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0157,test,tesseract_ocr,short,medium,some,medium,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0165,test,tesseract_ocr,short,low,some,medium,high,Computer and information sciences
+slide_highlight,NeurIPS_vid_0172,test,tesseract_ocr,short,low,some,medium,high,Computer and information sciences

@@ -1,0 +1,75 @@
+This repository holds code under the MIT licence and data under CC BY 4.0. The lectures of
+the four corpora are not in it and keep their own licences (third part below).
+
+
+1. The code: MIT licence
+
+Copyright (c) 2026 the authors of the lecture-slide-alignment-benchmark repository
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+This covers the code and its documentation: scripts/, methods/, similarity/, tests/,
+cluster/, config/, docs/ and the files at the root.
+
+
+2. The data this project created: CC BY 4.0
+
+The files under data/ and results/ were made by this project and are released under the Creative
+Commons Attribution 4.0 International licence (https://creativecommons.org/licenses/by/4.0/),
+copyright (c) 2026 the authors of the lecture-slide-alignment-benchmark repository:
+
+- data/splits/       the M3AV split into m3av_a and m3av_b
+- data/selection/    the 60 tuning and 140 test lectures
+- data/attributes/, data/categories/
+                     the lecture attributes (length, images, tables, layout boxes,
+                     discipline), their checks and the levels per attribute
+- data/importance/   the importance labels (0/1/2) of the 18,315 test units, the second
+                     labelling, the agreement tables and the check key and check labels
+- data/tuning/, data/final/
+                     the tuning and final-run tables (per lecture accuracy and cost) and
+                     every method's predicted slide per unit
+- data/similarity/   the similarity tables of the 60 tuning and 140 test lectures
+- data/analysis/     the tables and figures of the analysis
+- results/           the same tables as LaTeX and the figures as PDF
+- data/llm_cache.sqlite3
+                     the LLM answers of the runs
+
+These files hold the corpora's lecture ids, numbers and labels, not their text or slides.
+The true slide of each unit (the true_slide column of data/final/predictions/ and of the
+importance labels) repeats the ground truth of the corpus the lecture comes from, so its
+reuse also follows that corpus's terms (third part).
+
+
+3. The corpora: not included, under their own licences
+
+The transcripts, slides and ground truth of the four corpora are not in this repository.
+scripts/download.py fetches them from their official sources at pinned versions into
+data/raw/ (kept out of git), and the scripts prepare them from there. Each stays under
+its own terms:
+
+- M3AV (Chen et al., ACL 2024; huggingface.co/datasets/CHHHH/M3AV_v1.0): CC BY-NC-SA 4.0;
+  the copyright of the videos stays with their owners.
+- MaViLS (Anderer et al., Interspeech 2024; github.com/andererka/MaViLS): the repository
+  carries an Apache-2.0 licence, which its README states for the code; most slide decks
+  are from MIT OpenCourseWare (CC BY-NC-SA 4.0), and the remaining decks have no stated
+  terms.
+- MCD (github.com/meghamariamkm2002/MCD) and Slide-Highlight
+  (github.com/meghamariamkm2002/Slide_Highlight): no licence is stated, and the talks come
+  from SlidesLive, whose terms do not allow passing the content on. They may not be
+  redistributed; for them this repository holds the lecture ids and the numbers and
+  labels derived from them (attributes, importance labels, predictions, run tables,
+  similarity tables), not their text or slides.

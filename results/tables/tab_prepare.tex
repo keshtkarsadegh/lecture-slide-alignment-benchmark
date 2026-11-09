@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\caption{Preparation of the five datasets. Lectures: in the corpus as distributed. Dropped: the lectures a rule of Section~\ref{sec:data} removes, by reason (no labels: a MaViLS deck without its file of slide labels; no slides: an M$^3$AV talk without slide segments; image missing: a kept slide without an image). Kept: the pool of Table~\ref{tab:corpora}. Cut: kept lectures whose transcript ends at the first unit of a slide after the 40th. Units of the kept lectures: without a true slide (removed), after the cut (removed) and kept. The M$^3$AV talks that the rules drop are in neither half of the split; the preparation lists them among the dropped lectures of both halves, and the table counts them once, in their own row.}
+\label{tab:prepare}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrrr@{}}
+\toprule
+ &  & \multicolumn{4}{c}{Dropped} &  &  & \multicolumn{3}{c}{Units} \\
+\cmidrule(lr){3-6}\cmidrule(lr){9-11}
+Dataset & Lectures & \begin{tabular}[b]{@{}r@{}}No\\labels\end{tabular} & \begin{tabular}[b]{@{}r@{}}No\\slides\end{tabular} & \begin{tabular}[b]{@{}r@{}}Under\\5 slides\end{tabular} & \begin{tabular}[b]{@{}r@{}}Image\\missing\end{tabular} & Kept & Cut & \begin{tabular}[b]{@{}r@{}}No true\\slide\end{tabular} & \begin{tabular}[b]{@{}r@{}}After\\the cut\end{tabular} & Kept \\
+\midrule
+MaViLS & 21 & 1 & 0 & 0 & 0 & 20 & 9 & 3,955 & 1,523 & 7,220 \\
+M$^3$AV A & 542 & 0 & 0 & 0 & 4 & 538 & 97 & 6,043 & 9,494 & 64,653 \\
+M$^3$AV B & 541 & 0 & 0 & 0 & 5 & 536 & 83 & 5,921 & 8,558 & 63,740 \\
+\begin{tabular}[t]{@{}l@{}}M$^3$AV,\\neither half\end{tabular} & 30 & 0 & 3 & 27 & 0 & 0 & 0 & 0 & 0 & 0 \\
+MCD & 25 & 0 & 0 & 2 & 0 & 23 & 0 & 0 & 0 & 736 \\
+Slide-Highlight & 14 & 0 & 0 & 0 & 0 & 14 & 0 & 0 & 0 & 556 \\
+\midrule
+All & 1,173 & 1 & 3 & 29 & 9 & 1,131 & 189 & 15,919 & 19,575 & 136,905 \\
+\bottomrule
+\end{tabular*}
+\end{table}

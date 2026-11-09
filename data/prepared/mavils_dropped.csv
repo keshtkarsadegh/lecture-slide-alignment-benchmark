@@ -1,0 +1,2 @@
+corpus,lecture_id,reason,n_slides,detail
+mavils,RL_deepmind,no_ground_truth,,RL_deepmind.pdf has no ground-truth xlsx

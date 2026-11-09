@@ -1,0 +1,43 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{1em}
+\caption{Q4 against errors that ignore importance, over all test lectures and pooled over the units. Wrong: the important (core) units the method placed on the wrong slide, as a percentage of all units (the All column of Table~\ref{tab:q4}). Expected: the same percentage if its errors fell on units whatever their label, that is 44.3\,\% (the core share of all units) times its error rate (all units on the wrong slide, as a percentage of all units). Ratio: wrong divided by expected; below 1, the method's errors spare important content. Methods in the order of Table~\ref{tab:q4}.}
+\label{tab:q4-expected}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+Method & \begin{tabular}[b]{@{}r@{}}Wrong\\(\%)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Expected\\(\%)\end{tabular} & Ratio \\
+\midrule
+Score fusion & 6.9 & 12.6 & 0.55 \\
+Soft-DTW & 7.0 & 12.6 & 0.55 \\
+Gotoh & 7.1 & 12.7 & 0.56 \\
+Semi-Markov & 7.2 & 12.9 & 0.56 \\
+MBR decoding & 7.2 & 12.9 & 0.56 \\
+Needleman--Wunsch & 7.5 & 13.0 & 0.58 \\
+Ensemble vote & 7.5 & 13.4 & 0.56 \\
+DTW & 7.6 & 13.2 & 0.57 \\
+Drop-DTW & 7.7 & 13.1 & 0.59 \\
+Adaptive prior & 7.8 & 13.6 & 0.57 \\
+LLM re-rank (5 methods) & 8.0 & 13.7 & 0.59 \\
+Multiscale DTW & 8.2 & 13.7 & 0.60 \\
+PELT & 8.3 & 13.7 & 0.61 \\
+Cohesion DP & 8.8 & 16.8 & 0.52 \\
+Jump DTW & 8.8 & 16.8 & 0.53 \\
+Anchored DP & 8.9 & 14.2 & 0.63 \\
+Viterbi DP & 9.0 & 17.2 & 0.52 \\
+LLM-prior DP & 9.2 & 17.3 & 0.53 \\
+Forward--backward & 9.7 & 17.9 & 0.54 \\
+Unbalanced OT & 12.7 & 20.8 & 0.61 \\
+Rank DP & 14.1 & 20.7 & 0.68 \\
+BOCPD & 14.8 & 18.9 & 0.79 \\
+Argmax & 15.7 & 26.1 & 0.60 \\
+OPW & 19.7 & 26.6 & 0.74 \\
+LLM single call & 25.1 & 25.9 & 0.97 \\
+LLM hierarchical & 25.7 & 28.7 & 0.90 \\
+WBS2 & 33.3 & 33.3 & 1.00 \\
+LLM monotone (constrained) & 34.1 & 34.0 & 1.00 \\
+LLM monotone & 34.7 & 33.8 & 1.03 \\
+TextTiling DP & 36.0 & 36.0 & 1.00 \\
+TextTiling & 36.4 & 36.1 & 1.01 \\
+\bottomrule
+\end{tabular*}
+\end{table}

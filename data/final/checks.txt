@@ -1,0 +1,28 @@
+Step 13: the final run's checks (scripts/final_report.py)
+
+1. completeness: 31 methods x 140 test lectures; 4340 rows, 4340 ok
+2. failed calls: 0; failed attempts (information, never cost): llm_single_call 1, llm_monotone 0, llm_monotone_constrained 1, hierarchical 28, ensemble 0, llm_rerank_kbest 0, fusion 0
+3. parse failures / truncated answers per LLM and mixed method:
+   llm_single_call            LLM    parse_failed    3  truncated    3  (answers used 140)
+   llm_monotone               LLM    parse_failed    0  truncated    0  (answers used 140)
+   llm_monotone_constrained   LLM    parse_failed    0  truncated    0  (answers used 140)
+   hierarchical               LLM    parse_failed    0  truncated    0  (answers used 1541)
+   ensemble                   mixed  parse_failed    3  truncated    3  (answers used 140)
+   llm_rerank_kbest           mixed  parse_failed    0  truncated    0  (answers used 140)
+   fusion                     mixed  parse_failed    0  truncated    0  (answers used 1541)
+4. copying (answers of llm_single_call, llm_monotone, llm_monotone_constrained, hierarchical, llm_rerank_kbest):
+   llm_single_call            answers   140  old example 0  letter echo 0
+   llm_monotone               answers   140  old example 0  letter echo 0
+   llm_monotone_constrained   answers   140  old example 0  letter echo 0
+   hierarchical               answers  1541  old example 0  letter echo 0
+   llm_rerank_kbest           answers   140  old example 0  letter echo 0
+   replay from the cache: 7 methods x 140 lectures, 0 problems
+5. test vs tuning accuracy, more than 5 points apart:
+   texttiling                 test  29.07  tuning  35.94  diff  -6.87
+   wbs2                       test  35.47  tuning  41.60  diff  -6.12
+   opw                        test  54.27  tuning  59.66  diff  -5.39
+   ot_unbalanced              test  61.24  tuning  66.25  diff  -5.00
+
+LLM calls paid in this run: 2101 calls, 8469.4 s (successful attempts), 7179568 prompt + 323507 completion tokens
+
+PROBLEMS: 0

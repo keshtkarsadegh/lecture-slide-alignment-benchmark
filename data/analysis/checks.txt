@@ -1,0 +1,10 @@
+Step 14: the analysis's checks (scripts/analysis.py)
+
+1. methods: 31 per-lecture tables, 31 summary rows, 31 methods expected
+2. lectures: 140 test lectures, the same for every method
+3. categories: 140 test lectures, one level on each of 7 axes
+4. Q1 against summary.csv (accuracy, costs): 0 differences
+5. weighted level means = overall mean: 31 methods x 7 axes, 0 differences
+6. levels with test lectures and all 31 methods: 22 levels, 0 problems
+
+PROBLEMS: 0

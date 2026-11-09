@@ -1,0 +1,32 @@
+method,kind,overall_rank,overall_accuracy,best_level,best_rank,best_accuracy,worst_level,worst_rank,worst_accuracy
+score_fusion,non-LLM,1,72.20774989232585,discipline: Computer and information sciences,1,72.60129382086633,discipline: Engineering and technology,6,57.55685038468103
+gotoh,non-LLM,2,72.07314930890038,tables: some,1,78.76918987654719,discipline: Social sciences,9,74.34609935690403
+needleman_wunsch,non-LLM,3,71.37453452601349,noise: low,2,71.40078541161674,noise: medium,11,69.08051760940758
+dtw,non-LLM,4,71.34015009967413,text_source: corpus_corrected_ocr,3,68.55988035874286,discipline: Social sciences,11,73.8121275708506
+softdtw,non-LLM,5,71.14930293308778,discipline: Social sciences,1,78.36794586913182,length: short,17,71.04977385676469
+ensemble,mixed,6,71.06535892332904,tables: some,5,77.54691190952599,discipline: Medical and health sciences,12,71.40984462517089
+adaptive_prior,non-LLM,7,71.06168948942458,length: short,1,73.94341539610087,discipline: Engineering and technology,15,54.712345367110494
+anchored_dp,non-LLM,8,70.93686945995641,length: medium,1,72.5435910518226,length: long,14,67.07637913759405
+drop_dtw,non-LLM,9,70.8986985154668,discipline: Natural sciences (other),3,77.35890398423042,length: medium,13,69.09367301217394
+multiscale_dtw,non-LLM,10,70.78037426114047,discipline: Computer and information sciences,5,71.60762980458492,discipline: Medical and health sciences,14,66.34900496483318
+semimarkov,non-LLM,11,70.48207333090977,discipline: Medical and health sciences,2,73.90888141987051,length: medium,17,68.38892159916551
+llm_rerank_kbest,mixed,12,70.23446645128973,text_density: low,5,55.70496096919186,noise: medium,15,67.92381271407928
+mbr,non-LLM,13,70.22020883581948,text_source: pdf_text_layer,2,73.77010420862733,noise: low,19,66.69954026319682
+pelt,non-LLM,14,69.83290869953267,length: short,10,72.24144924565068,length: medium,18,67.88075417638609
+jump_dtw,non-LLM,15,67.98697357060918,length: medium,9,69.82898788135235,text_source: tesseract_ocr,18,82.50878847503971
+cohesion_dp,non-LLM,16,67.9845007308601,length: medium,10,69.52611759301793,discipline: Engineering and technology,19,52.496245294506515
+fusion,mixed,17,67.70026580933661,text_source: tesseract_ocr,1,87.20024467496582,discipline: Social sciences,21,67.51942838670354
+dp,non-LLM,18,67.54698845476105,noise: low,13,68.23491764066307,text_source: pdf_text_layer,19,57.85846410033793
+forward_backward,non-LLM,19,65.97986720738331,discipline: Social sciences,15,70.9082389091106,text_source: pdf_text_layer,20,56.19695802828924
+bocpd,non-LLM,20,62.14988698499983,discipline: Social sciences,17,70.04114437266568,discipline: Medical and health sciences,22,45.25687657157895
+rank_dp,non-LLM,21,61.5737700345517,text_source: tesseract_ocr,20,77.62931597681826,text_density: low,22,46.166745627678885
+ot_unbalanced,non-LLM,22,61.24223286141302,discipline: Social sciences,20,67.68380472789845,text_source: pdf_text_layer,23,49.68923266197438
+opw,non-LLM,23,54.269218607704474,length: medium,23,62.03539156483437,discipline: Medical and health sciences,26,29.994065917903935
+llm_single_call,LLM,24,51.96401477477335,text_source: pdf_text_layer,21,55.37493162466338,discipline: Natural sciences (other),27,27.17108490177505
+argmax,non-LLM,25,50.624968399616726,length: long,23,42.0438100989413,discipline: Computer and information sciences,26,53.99245663651306
+hierarchical,LLM,26,49.65301137476487,text_source: tesseract_ocr,24,73.93426989445577,text_source: pdf_text_layer,26,27.12518241804568
+wbs2,non-LLM,27,35.47353932051838,discipline: Natural sciences (other),26,28.844520719432815,discipline: Social sciences,31,25.408395681031255
+llm_monotone,LLM,28,33.298096364445044,text_source: tesseract_ocr,27,49.84466611275618,text_source: pdf_text_layer,31,10.193130982043707
+llm_monotone_constrained,LLM,29,32.12463644627808,images: low,27,34.91184134188792,text_density: low,31,24.800959368457153
+texttiling,non-LLM,30,29.07048576322819,length: medium,28,33.65175417380241,discipline: Medical and health sciences,31,9.584710231904703
+texttiling_dp,non-LLM,31,28.90142922297041,text_source: tesseract_ocr,29,46.95380417112764,noise: medium,31,24.678780433976165

@@ -1,0 +1,15 @@
+# The LLM endpoint for the six LLM methods (methods/llm_client.py).
+# The endpoint's address and the API key are NOT here: set LLM_API_BASE and LLM_API_KEY in
+# the untracked cluster/env.local (ACTIVATE.md), or put  api_key = "..."  into
+# config/llm_credentials.toml, which .gitignore keeps out of git.
+
+[llm]
+model = "qwen3-30b-a3b-instruct-2507"              # a tuning setting (step 8)
+temperature = 0.0                                  # fixed
+disable_thinking = true      # sends chat_template_kwargs = {enable_thinking = false}
+timeout_s = 300
+max_retries = 4
+requests_per_minute = 20     # the endpoint limits per ACCOUNT: divide among parallel jobs
+
+[cache]
+path = "data/llm_cache.sqlite3"   # every answer, keyed by the full request

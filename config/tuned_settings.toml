@@ -1,0 +1,278 @@
+# The tuned settings of step 11, written by scripts/select_settings.py from
+# data/tuning/runs (the rule: docs/TUNING_DESIGN.md 4). Do not edit by hand.
+# Per method the chosen combination of config/tuning_grid.toml: measure, model
+# (LLM methods), [cfg] (DPConfig fields; the others at their defaults) and
+# [settings] (the method's own; the others at their defaults). "none" = None.
+# hierarchical also has its best settings per model ([per_model]), which
+# fusion's curve uses.
+
+[argmax]
+measure = "image"
+tuning_accuracy = 0.5417147714788936
+
+[dtw]
+measure = "image"
+tuning_accuracy = 0.7416725003874567
+[dtw.cfg]
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+
+[multiscale_dtw]
+measure = "image"
+tuning_accuracy = 0.7402980294943725
+[multiscale_dtw.cfg]
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[multiscale_dtw.settings]
+radius = 4
+
+[needleman_wunsch]
+measure = "image"
+tuning_accuracy = 0.7483115309466865
+[needleman_wunsch.cfg]
+pos_weight = 4.0
+stay_bonus = 0.2
+[needleman_wunsch.settings]
+gap_segment = 0.4
+gap_slide = 0.1
+
+[gotoh]
+measure = "image"
+tuning_accuracy = 0.75550934067476
+[gotoh.cfg]
+pos_weight = 4.0
+stay_bonus = 0.2
+[gotoh.settings]
+gap_extend = 0.05
+gap_open = 0.8
+gap_segment = 0.4
+
+[drop_dtw]
+measure = "image"
+tuning_accuracy = 0.7451350922275624
+[drop_dtw.cfg]
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[drop_dtw.settings]
+drop_fill = "carry"
+drop_percentile = 80.0
+
+[anchored_dp]
+measure = "hybrid_image"
+tuning_accuracy = 0.7368161753870296
+[anchored_dp.cfg]
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[anchored_dp.settings]
+margin_q = 0.75
+
+[semimarkov]
+measure = "image"
+tuning_accuracy = 0.7467556230829412
+[semimarkov.cfg]
+forward_penalty = 0.05
+pos_weight = 0.0
+stay_bonus = 0.1
+[semimarkov.settings]
+dur_weight = 0.0
+
+[adaptive_prior]
+measure = "image"
+tuning_accuracy = 0.7448508512209405
+[adaptive_prior.cfg]
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[adaptive_prior.settings]
+alpha = 0.25
+tau = 0.05
+
+[dp]
+measure = "image"
+tuning_accuracy = 0.7099299745907381
+[dp.cfg]
+backward_penalty = 1.0
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+
+[rank_dp]
+measure = "image"
+tuning_accuracy = 0.6606773521895992
+[rank_dp.cfg]
+backward_penalty = 0.5
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+
+[cohesion_dp]
+measure = "image"
+tuning_accuracy = 0.7156155407349766
+[cohesion_dp.cfg]
+backward_penalty = 1.0
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[cohesion_dp.settings]
+strength = 1.0
+window = 3
+
+[jump_dtw]
+measure = "image"
+tuning_accuracy = 0.7182332985044351
+[jump_dtw.cfg]
+backward_penalty = 1.0
+forward_penalty = 0.05
+pos_weight = 4.0
+stay_bonus = 0.2
+[jump_dtw.settings]
+max_jump = 1
+
+[forward_backward]
+measure = "image"
+tuning_accuracy = 0.6914612992752504
+[forward_backward.cfg]
+backward_penalty = 1.0
+forward_penalty = 0.1
+pos_weight = 4.0
+stay_bonus = 0.4
+
+[softdtw]
+measure = "image"
+tuning_accuracy = 0.7494588798968332
+[softdtw.cfg]
+forward_penalty = 0.05
+pos_weight = 0.0
+stay_bonus = 0.2
+[softdtw.settings]
+gamma = 1.0
+mode = "expected"
+
+[pelt]
+measure = "image"
+tuning_accuracy = 0.7289184082004191
+[pelt.cfg]
+pos_weight = 4.0
+[pelt.settings]
+change_penalty = 0.5
+
+[bocpd]
+measure = "image"
+tuning_accuracy = 0.6680384035489255
+[bocpd.cfg]
+pos_weight = 8.0
+[bocpd.settings]
+hazard = 0.25
+
+[wbs2]
+measure = "hybrid"
+tuning_accuracy = 0.415959429977175
+[wbs2.cfg]
+pos_weight = 8.0
+[wbs2.settings]
+n_intervals = 40
+
+[texttiling]
+measure = "bm25"
+tuning_accuracy = 0.3593663215295767
+[texttiling.cfg]
+pos_weight = 16.0
+[texttiling.settings]
+window = 3
+
+[texttiling_dp]
+measure = "hybrid"
+tuning_accuracy = 0.3258219614537907
+[texttiling_dp.cfg]
+pos_weight = 8.0
+[texttiling_dp.settings]
+window = 3
+
+[opw]
+measure = "hybrid_image"
+tuning_accuracy = 0.5965929580946198
+[opw.cfg]
+pos_weight = 0.0
+[opw.settings]
+lambda1 = 1.0
+lambda2 = 0.3
+sigma = 2.0
+
+[ot_unbalanced]
+measure = "hybrid_image"
+tuning_accuracy = 0.6624509481682437
+[ot_unbalanced.cfg]
+pos_weight = 8.0
+[ot_unbalanced.settings]
+drop_mass = 0.5
+eps = 0.02
+reg_m = 0.1
+
+[mbr]
+measure = "image"
+tuning_accuracy = 0.743015247998149
+[mbr.cfg]
+forward_penalty = 0.05
+pos_weight = 0.0
+stay_bonus = 0.2
+[mbr.settings]
+k = 20
+temperature = "none"
+
+[llm_single_call]
+measure = "hybrid"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.5361104490659234
+
+[llm_monotone]
+measure = "hybrid"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.34188595330003196
+
+[llm_monotone_constrained]
+measure = "hybrid"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.3116975369000201
+
+[hierarchical]
+measure = "none"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.5291376193531427
+[hierarchical.settings]
+leaf_max_pages = 5
+use_boundary_refinement = false
+[hierarchical.per_model.qwen3-30b-a3b-instruct-2507]
+leaf_max_pages = 5
+use_boundary_refinement = false
+
+[score_fusion]
+measure = "members"
+tuning_accuracy = 0.7501579246864437
+[score_fusion.settings]
+nw_gamma = 0.3
+
+[ensemble]
+measure = "members"
+tuning_accuracy = 0.7419262046160571
+[ensemble.settings]
+smooth = true
+
+[llm_rerank_kbest]
+measure = "members"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.7352109765348948
+
+[fusion]
+measure = "image"
+model = "qwen3-30b-a3b-instruct-2507"
+tuning_accuracy = 0.7126962757342532
+[fusion.cfg]
+backward_penalty = 1.0
+forward_penalty = 0.05
+stay_bonus = 0.2
+[fusion.settings]
+pos_weight = 5.0

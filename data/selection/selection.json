@@ -1,0 +1,38 @@
+{
+ "input": {
+  "path": "data/categories/document_categories.csv",
+  "rows": 1131,
+  "sha256": "fd244627d74060bee7488d8a7e0fac1a78b3d7a8419191d599d8bce1c56f6362"
+ },
+ "seed": 20261012,
+ "settings": {
+  "seed": 20261012,
+  "sets": {
+   "tuning": {
+    "size": 60,
+    "min_per_level": 5
+   },
+   "test": {
+    "size": 140,
+    "min_per_level": 10
+   }
+  },
+  "small_corpora": {
+   "corpora": [
+    "mavils",
+    "mcd",
+    "slide_highlight"
+   ],
+   "tuning_share": [
+    1,
+    3
+   ]
+  },
+  "fill_corpora": {
+   "corpora": [
+    "m3av_a",
+    "m3av_b"
+   ]
+  }
+ }
+}

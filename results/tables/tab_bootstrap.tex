@@ -1,0 +1,45 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{1em}
+\caption{Bootstrap intervals over the 140 test lectures: 1{,}000 resamples of the lectures, drawn with replacement, every method averaged over the same resamples. Accuracy: the mean accuracy of Table~\ref{tab:q1}. Bootstrap mean: the 2.5\,\% and 97.5\,\% percentiles of the method's mean accuracy (\%) over the resamples. Score fusion $-$ method: the same percentiles of Score fusion's mean minus the method's on each resample, in points; an interval that holds 0 does not separate the two methods on lectures like these. Methods in the order of Table~\ref{tab:q1}.}
+\label{tab:bootstrap}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+ & & \multicolumn{2}{c}{Bootstrap mean} & \multicolumn{2}{c}{Score fusion $-$ method} \\
+\cmidrule(lr){3-4}\cmidrule(l){5-6}
+Method & \begin{tabular}[b]{@{}r@{}}Accuracy\\(\%)\end{tabular} & 2.5\,\% & 97.5\,\% & 2.5\,\% & 97.5\,\% \\
+\midrule
+Score fusion & 72.2 & 69.0 & 75.2 & -- & -- \\
+Gotoh & 72.1 & 68.7 & 75.1 & $-$0.6 & 0.8 \\
+Needleman--Wunsch & 71.4 & 68.2 & 74.4 & 0.1 & 1.5 \\
+DTW & 71.3 & 68.2 & 74.4 & 0.2 & 1.6 \\
+Soft-DTW & 71.1 & 67.8 & 74.4 & $-$0.2 & 2.2 \\
+Ensemble vote & 71.1 & 67.9 & 74.1 & 0.6 & 1.7 \\
+Adaptive prior & 71.1 & 67.5 & 74.2 & 0.1 & 2.2 \\
+Anchored DP & 70.9 & 67.8 & 74.1 & $-$0.5 & 2.9 \\
+Drop-DTW & 70.9 & 67.6 & 74.0 & 0.6 & 2.0 \\
+Multiscale DTW & 70.8 & 67.6 & 73.8 & 0.5 & 2.4 \\
+Semi-Markov & 70.5 & 67.3 & 73.8 & 0.4 & 3.0 \\
+LLM re-rank (5 methods) & 70.2 & 67.2 & 73.2 & 1.1 & 2.8 \\
+MBR decoding & 70.2 & 67.0 & 73.5 & 0.7 & 3.2 \\
+PELT & 69.8 & 66.7 & 73.0 & 1.7 & 3.1 \\
+Jump DTW & 68.0 & 64.8 & 70.9 & 3.2 & 5.3 \\
+Cohesion DP & 68.0 & 64.8 & 70.9 & 3.2 & 5.2 \\
+LLM-prior DP & 67.7 & 64.1 & 70.9 & 2.7 & 6.1 \\
+Viterbi DP & 67.5 & 64.3 & 70.4 & 3.6 & 5.8 \\
+Forward--backward & 66.0 & 62.9 & 69.0 & 5.0 & 7.5 \\
+BOCPD & 62.1 & 58.6 & 65.6 & 7.9 & 12.3 \\
+Rank DP & 61.6 & 58.2 & 64.8 & 8.7 & 12.4 \\
+Unbalanced OT & 61.2 & 58.0 & 64.2 & 8.8 & 13.0 \\
+OPW & 54.3 & 50.6 & 57.8 & 14.7 & 21.0 \\
+LLM single call & 52.0 & 47.0 & 56.6 & 16.0 & 24.9 \\
+Argmax & 50.6 & 47.8 & 53.4 & 19.7 & 23.4 \\
+LLM hierarchical & 49.7 & 45.6 & 53.4 & 19.2 & 26.0 \\
+WBS2 & 35.5 & 31.6 & 39.1 & 32.5 & 41.0 \\
+LLM monotone & 33.3 & 29.3 & 37.2 & 34.3 & 43.7 \\
+LLM monotone (constrained) & 32.1 & 28.7 & 35.6 & 35.8 & 44.3 \\
+TextTiling & 29.1 & 25.6 & 32.6 & 38.3 & 47.6 \\
+TextTiling DP & 28.9 & 26.0 & 32.0 & 39.2 & 47.2 \\
+\bottomrule
+\end{tabular*}
+\end{table}

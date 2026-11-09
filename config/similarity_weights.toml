@@ -1,0 +1,56 @@
+# The weights of the three local-model scorers (splade, cross_encoder, image), read by
+# scripts/build_similarity.py (step 10). Not part of config/similarity.toml: that file
+# holds the settings that decide the numbers, and its sections must be exactly the ones
+# similarity/registry.py knows. A scorer's `model` there stays the Hugging Face name, so
+# the cache keys do not depend on where the files lie; the build loads them from here.
+#
+# Each model is pinned to one commit of its Hugging Face repository and every file is
+# checked by sha256 (`python scripts/build_similarity.py fetch`). The files live outside
+# the repository in $PROJECT_ROOT/models_lsab/ (the shared hf_cache is not used); `dir` is
+# relative to PROJECT_ROOT (scripts/project_root.py).
+
+dir = "models_lsab"
+
+[splade]
+repo = "naver/splade-v3-distilbert"
+revision = "2db06b86d65e316e2ca9907aa1aa8be6f8c4e739"
+subdir = "splade-v3-distilbert"
+
+[splade.files]
+"config.json" = "74a907fbab3a02dd98242f4e934360cd0e969c251eb0356c1de873bcb64ae335"
+"pytorch_model.bin" = "ec4c6e9c997b7c61297759ad529ef7ed4f056491aa9fb536c21e26ff7f11ca77"
+"special_tokens_map.json" = "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+"tokenizer.json" = "2fc687b11de0bc1b3d8348f92e3b49ef1089a621506c7661fbf3248fcd54947e"
+"tokenizer_config.json" = "bb75bf4f97f4a69e71313e8f3e55b8387075b369ea2f5c75aae416ace006f2c2"
+"vocab.txt" = "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+
+[cross_encoder]
+repo = "cross-encoder/ms-marco-MiniLM-L6-v2"
+revision = "233902d25c440f23af6f7d6e94d2946bac0bee0a"
+subdir = "ms-marco-MiniLM-L6-v2"
+
+[cross_encoder.files]
+"config.json" = "380e02c93f431831be65d99a4e7e5f67c133985bf2e77d9d4eba46847190bacc"
+"model.safetensors" = "821d1aa69520101d6e0737f78a042ae25b19e5cb9160701909d10434f4aeb0ae"
+"special_tokens_map.json" = "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6"
+"tokenizer.json" = "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+"tokenizer_config.json" = "a5c2e5a7b1a29a0702cd28c08a399b5ecc110c263009d17f7e3b415f25905fd8"
+"vocab.txt" = "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+
+# The last commit in colpali-engine's own format (2025-04-16). The two later commits
+# (2026-08) only add a Sentence Transformers layout around the same model.safetensors.
+[image]
+repo = "vidore/colqwen2-v1.0-merged"
+revision = "2c9a09bb37ed19b63eb94ae6c29bb4e76eb6e3c2"
+subdir = "colqwen2-v1.0-merged"
+
+[image.files]
+"chat_template.json" = "94174d7176c52a7192f96fc34eb2cf23c7c2059d63cdbfadca1586ba89731fb7"
+"config.json" = "6f2a1c6163be5587cca75ea4c609c1dd5c955adfb46e492cf02c1758e906018d"
+"generation_config.json" = "b53ca354bf4089e57436bf497d66810946c1cc0c62b58dd8d2b7443a03a60197"
+"model.safetensors" = "f8fa24a0ac2d18eb5cd7a75af8faf95a02201da402153bbfd485565971e35179"
+"preprocessor_config.json" = "50f94fd9ab08ce0bcfd003c68da52b3ea4d8573cbf22a89b9da9b34baeaf9ff6"
+"special_tokens_map.json" = "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+"tokenizer.json" = "091aa7594dc2fcfbfa06b9e3c22a5f0562ac14f30375c13af7309407a0e67b8a"
+"tokenizer_config.json" = "955409fb4dab09a71b957ce69f8a8185bbbd3416b9ab5a47e01221545be39c6f"
+"vocab.json" = "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"

@@ -1,0 +1,43 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{1em}
+\caption{How far the errors land, over all test lectures and pooled over the units. Wrong units: the units the method placed on the wrong slide, as a percentage of all units. One slide off: the wrong units whose slide is next to their true slide, as a percentage of the wrong units. Mean distance: the mean number of slides between the slide of a wrong unit and its true slide. Methods in the order of Table~\ref{tab:q1}.}
+\label{tab:severity}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+Method & \begin{tabular}[b]{@{}r@{}}Wrong\\units (\%)\end{tabular} & \begin{tabular}[b]{@{}r@{}}One slide\\off (\%)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean\\distance\end{tabular} \\
+\midrule
+Score fusion & 28.4 & 77.8 & 1.49 \\
+Gotoh & 28.7 & 77.5 & 1.50 \\
+Needleman--Wunsch & 29.4 & 75.8 & 1.56 \\
+DTW & 29.9 & 74.4 & 1.64 \\
+Soft-DTW & 28.5 & 79.5 & 1.44 \\
+Ensemble vote & 30.2 & 70.6 & 1.75 \\
+Adaptive prior & 30.8 & 73.6 & 1.71 \\
+Anchored DP & 32.0 & 63.2 & 2.30 \\
+Drop-DTW & 29.6 & 75.2 & 1.57 \\
+Multiscale DTW & 31.0 & 70.8 & 1.90 \\
+Semi-Markov & 29.2 & 78.3 & 1.46 \\
+LLM re-rank (5 methods) & 30.9 & 73.3 & 1.65 \\
+MBR decoding & 29.1 & 78.4 & 1.47 \\
+PELT & 31.0 & 71.9 & 1.69 \\
+Jump DTW & 37.9 & 62.5 & 1.90 \\
+Cohesion DP & 38.0 & 58.7 & 2.08 \\
+LLM-prior DP & 39.1 & 52.1 & 2.90 \\
+Viterbi DP & 38.9 & 57.1 & 2.11 \\
+Forward--backward & 40.5 & 54.3 & 2.20 \\
+BOCPD & 42.7 & 51.2 & 2.43 \\
+Rank DP & 46.9 & 47.4 & 2.45 \\
+Unbalanced OT & 47.0 & 45.7 & 2.79 \\
+OPW & 60.2 & 30.7 & 2.96 \\
+LLM single call & 58.5 & 35.4 & 6.14 \\
+Argmax & 58.9 & 22.2 & 8.12 \\
+LLM hierarchical & 64.8 & 41.5 & 3.00 \\
+WBS2 & 75.3 & 39.0 & 2.69 \\
+LLM monotone & 76.3 & 31.5 & 6.60 \\
+LLM monotone (constrained) & 76.9 & 36.7 & 3.02 \\
+TextTiling & 81.5 & 21.4 & 5.62 \\
+TextTiling DP & 81.3 & 32.4 & 3.03 \\
+\bottomrule
+\end{tabular*}
+\end{table}

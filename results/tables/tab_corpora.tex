@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\caption{The corpora. Source: what the lectures are. Slide text: where the text of the slides comes from. Lectures: in the pool after preparation (at most 40 slides each), in the tuning set and in the test set. Test lectures: their transcript units (each with its true slide), and the mean slides and mean units per test lecture. M$^3$AV is split into two halves with different lectures (A and B). Of the 140 test lectures, 19 are course lectures (MaViLS; in M$^3$AV a clinical-research course and Oxford Mathematics), 24 invited science talks (the NIH Director's lectures in M$^3$AV) and 97 conference paper talks (CHI and UbiComp in M$^3$AV, MCD, Slide-Highlight).}
+\label{tab:corpora}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll>{\raggedright\arraybackslash}p{59pt}rrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{Lectures} & \multicolumn{3}{c}{Test lectures} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-9}
+Corpus & Source & Slide text & Pool & Tuning & Test & Units & \begin{tabular}[b]{@{}r@{}}Mean\\slides\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean\\units\end{tabular} \\
+\midrule
+MaViLS & \begin{tabular}[t]{@{}l@{}}University lectures,\\PDF decks\end{tabular} & PDF text layer (1 deck: Tesseract OCR) & 20 & 7 & 13 & 4,982 & 31.3 & 383.2 \\
+M$^3$AV A & \begin{tabular}[t]{@{}l@{}}Academic talks,\\slides as video\\segments (half A)\end{tabular} & Corrected OCR (corpus) & 538 & 20 & 52 & 6,726 & 19.8 & 129.3 \\
+M$^3$AV B & \begin{tabular}[t]{@{}l@{}}Academic talks,\\slides as video\\segments (half B)\end{tabular} & Corrected OCR (corpus) & 536 & 20 & 51 & 5,787 & 20.5 & 113.5 \\
+MCD & \begin{tabular}[t]{@{}l@{}}Conference\\presentations,\\slide images\end{tabular} & Tesseract OCR & 23 & 8 & 15 & 486 & 10.4 & 32.4 \\
+Slide-Highlight & \begin{tabular}[t]{@{}l@{}}Conference talks,\\slide images\end{tabular} & Tesseract OCR & 14 & 5 & 9 & 334 & 10.1 & 37.1 \\
+\midrule
+All &  &  & 1,131 & 60 & 140 & 18,315 & 19.5 & 130.8 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,91 @@
+# Step 5: the lecture attributes (docs/ATTRIBUTES.md).
+# scripts/detect_layout.py, scripts/assign_discipline.py and scripts/attributes.py read it.
+
+[layout]
+# The layout detector: Docling's "heron" model, an RT-DETRv2 trained on DocLayNet and
+# further layout data (Livathinos et al. 2025, "Advanced Layout Analysis Models for
+# Docling", arXiv:2509.11720). Apache-2.0. 17 classes, among them picture and table.
+# Pinned to one commit of the Hugging Face repository; every file is checked by sha256.
+repo = "docling-project/docling-layout-heron"
+revision = "8f39ad3c0b4c58e9c2d2c84a38465abf757272d8"
+# Relative to PROJECT_ROOT, the directory next to the clone (scripts/project_root.py).
+weights_dir = "models_lsab/docling-layout-heron"
+# The confidence threshold, the value of the model card's own example. Boxes below it are
+# not stored at all.
+threshold = 0.6
+image_class = "picture"      # counts toward image_pct
+table_class = "table"        # counts toward table_pct
+batch_size = 32
+
+[picture_filter]
+# Picture boxes that do not count toward image_pct (scripts/attributes.py, picture_drops).
+# The check of 100 slides by eye found the picture boxes wrong on 72: logos and
+# watermarks (44), the speaker's camera inset in M3AV frames (32 of the 33 that show
+# one), small icons and glyphs (13), video-player or beamer control bars (6); only 4
+# real figures were missed. Tables were right on all 100 and are not filtered.
+# repeat: dropped if a picture box in the same place (IoU >= repeat_iou, page coordinates
+# normalised to 0..1) is on at least repeat_share of the lecture's slides, its own
+# slide included, each slide counted once.
+repeat_share = 0.5
+repeat_iou = 0.7
+# tiny: dropped if smaller than tiny_pct % of the slide area.
+tiny_pct = 1.0
+
+[layout.files]
+"config.json" = "fdea30805ce2f5666b147fca941dcdd27ad468e27d6ed21902207d3da056a97d"
+"preprocessor_config.json" = "cd38cd59999e7a95d68e487fbe5132df3d4e5c32a0836add57e6126ba0c4eaf1"
+"model.safetensors" = "00333a43451945aaf89db8ca9c0a17e75d1537c17db60fdb91aa95f4c7929e0c"
+
+[validation]
+# The sheet checked by eye (data/attributes/validation_100.pdf).
+n = 100
+seed = 20261011            # the project seed (the M3AV split uses the same)
+min_per_corpus = 10
+# Within each corpus, this share of its quota is drawn from slides with at least one
+# detected table (all of them if there are fewer): tables are rare, and a uniform sample
+# would show almost none.
+table_share = 0.4
+
+[noise]
+# The fixed English word list (scripts/build_wordlist.py builds it from SCOWL).
+wordlist = "config/wordlist_en_scowl70.txt.gz"
+
+[discipline]
+fos_list = "config/oecd_fos2007.csv"
+# What the LLM reads of a lecture (scripts/assign_discipline.py, lecture_text). The first
+# slides are often a title, a biography or a CME notice, so slides from the rest of the
+# deck and the transcript opening go in too.
+n_slides = 3               # the first slides whose text goes into the prompt
+n_spread = 3               # plus this many, at the centres of equal parts of the rest
+slide_chars = 1200         # each slide's text is cut to this many characters
+transcript_words = 150     # the first words of the kept transcript units
+max_tokens = 200
+
+[discipline.venues]
+# What the LLM is told about an M3AV talk's venue code (the prefix of its id), in place of
+# the bare code: the model does not know what CHI, IPP, MLS, NIH or Ubi stand for, and a
+# check found 16 of 34 CHI talks (HCI papers) labelled 2.10 Nano-technology, 2.2 or 2.11.
+# Each entry is the venue's name and what the venue is, nothing more: no venue is tied to
+# an OECD field. A code not listed here goes in bare, as before. The other corpora carry
+# no venue code, so their requests are unchanged.
+# Sources, both naming all five: Chen et al., "M3AV: A Multimodal, Multigenre, and
+# Multipurpose Audio-Visual Academic Lecture Dataset", ACL 2024 (arXiv:2403.14168),
+# Section 3.2 "Variety of Academic Fields" and Figure 2(a); and the dataset README,
+# https://github.com/Jack-ZC8/M3AV-dataset (its table of sources).
+# CHI: paper "The Conference on Human Factors in Computing Systems (CHI) 2021
+#      Presentations"; README "CHI 2021 Paper Presentations".
+CHI = "the Conference on Human Factors in Computing Systems (CHI) 2021, paper presentations (human–computer interaction research talks)"
+# Ubi: paper "ACM International Conference on Ubiquitous Computing (Ubi) 2020
+#      Presentations"; README "UbiComp 2020 Presentations".
+Ubi = "the ACM International Conference on Ubiquitous Computing (UbiComp) 2020, paper presentations (ubiquitous computing research talks)"
+# NIH: paper "The National Institutes of Health Director's Wednesday Afternoon Lectures
+#      (NIH) presents weekly science talks given by top biomedical scientists"; README
+#      "NIH Director's Wednesday Afternoon Lectures".
+NIH = "the National Institutes of Health (NIH) Director's Wednesday Afternoon Lectures (weekly science talks given by top biomedical scientists)"
+# IPP: paper "The Introduction to the Principles and Practice of Clinical Research (IPP)
+#      teaches how to conduct clinical research effectively and safely"; README
+#      "Introduction to the Principles and Practice of Clinical Research".
+IPP = "the course Introduction to the Principles and Practice of Clinical Research (lectures on how to conduct clinical research effectively and safely)"
+# MLS: paper "Oxford Mathematics (MLS) contains mathematics lectures"; README "Oxford
+#      Mathematics".
+MLS = "Oxford Mathematics (mathematics lectures)"

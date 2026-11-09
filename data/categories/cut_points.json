@@ -1,0 +1,131 @@
+{
+ "input": {
+  "path": "data/attributes/document_attributes.csv",
+  "rows": 1131,
+  "sha256": "00941d6dfad1d2355b033361c373676dcffa840c0ad5f479aceeac647435397f"
+ },
+ "tercile_rule": "q1, q2 = sorted values at positions ceil(n/3), ceil(2n/3) (1-based), over all lectures pooled; level 1 if value <= q1, level 2 if q1 < value <= q2, level 3 otherwise",
+ "cut_points": {
+  "length": {
+   "column": "n_slides",
+   "q1": 12.0,
+   "q2": 19.0,
+   "levels": [
+    "short",
+    "medium",
+    "long"
+   ]
+  },
+  "images": {
+   "column": "image_pct",
+   "q1": 14.5713,
+   "q2": 25.6741,
+   "levels": [
+    "low",
+    "medium",
+    "high"
+   ]
+  },
+  "noise": {
+   "column": "noise",
+   "q1": 6.7961,
+   "q2": 12.1984,
+   "levels": [
+    "low",
+    "medium",
+    "high"
+   ]
+  },
+  "text_density": {
+   "column": "text_density",
+   "q1": 31.62,
+   "q2": 47.45,
+   "levels": [
+    "low",
+    "medium",
+    "high"
+   ]
+  }
+ },
+ "tables": {
+  "column": "table_pct",
+  "rule": "none if table_pct == 0, some if > 0"
+ },
+ "discipline": {
+  "min_count": 20,
+  "own_level": [
+   "1.2"
+  ],
+  "level_counts_before_merge": {
+   "Computer and information sciences": 742,
+   "Natural sciences (other)": 177,
+   "Engineering and technology": 39,
+   "Medical and health sciences": 133,
+   "Agricultural sciences": 0,
+   "Social sciences": 40,
+   "Humanities": 0
+  },
+  "merged_into_other": {}
+ },
+ "settings": {
+  "text_source": {
+   "levels": [
+    "pdf_text_layer",
+    "corpus_corrected_ocr",
+    "tesseract_ocr"
+   ]
+  },
+  "terciles": {
+   "length": {
+    "column": "n_slides",
+    "levels": [
+     "short",
+     "medium",
+     "long"
+    ]
+   },
+   "images": {
+    "column": "image_pct",
+    "levels": [
+     "low",
+     "medium",
+     "high"
+    ]
+   },
+   "noise": {
+    "column": "noise",
+    "levels": [
+     "low",
+     "medium",
+     "high"
+    ]
+   },
+   "text_density": {
+    "column": "text_density",
+    "levels": [
+     "low",
+     "medium",
+     "high"
+    ]
+   }
+  },
+  "tables": {
+   "column": "table_pct"
+  },
+  "discipline": {
+   "fos_list": "config/oecd_fos2007.csv",
+   "own_level": [
+    "1.2"
+   ],
+   "min_count": 20,
+   "areas": {
+    "1": "Natural sciences",
+    "2": "Engineering and technology",
+    "3": "Medical and health sciences",
+    "4": "Agricultural sciences",
+    "5": "Social sciences",
+    "6": "Humanities"
+   }
+  }
+ }
+}

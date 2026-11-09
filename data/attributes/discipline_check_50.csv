@@ -1,0 +1,51 @@
+corpus,lecture_id,assigned,verdict,better_field,note
+mavils,ML_for_health_MIT,3.3 Health sciences,near,1.2 Computer and information sciences,"MIT HST.956/6.S897 ML for Healthcare; this lecture is a primer on clinical data (MIMIC), so 3.3 is arguable, but the course is computational"
+mavils,cities_and_decarbonization,1.5 Earth and related environmental sciences,near,5.7 Social and economic geography,"MIT DUSP urban studies course: cities, energy use, emissions; urban/policy, not geoscience"
+mavils,climate_and_cities,1.5 Earth and related environmental sciences,near,5.7 Social and economic geography,"Same DUSP course (11.165): cities and climate action, policy readings"
+mavils,climate_science_policy_MIT,1.5 Earth and related environmental sciences,near,5.2 Economics and business,"14.43/15.031: economists' view of efficient global climate policy, costs/benefits"
+mavils,cognitive_robotics_MIT,"2.2 Electrical engineering, electronic engineering, information engineering",yes,,"Autonomous vehicles and temporal logic planning; robotics sits in 2.2 under FOS (1.2 also fine)"
+mavils,computer_vision_2_2,1.2 Computer and information sciences,yes,,Camera models / image formation
+mavils,creating_breakthrough_products_MIT,5.2 Economics and business,yes,,"MIT Sloan innovation course, lead users"
+mavils,cryptocurrency_MIT,1.2 Computer and information sciences,yes,,"Lightning network, payment channels"
+mavils,deeplearning_goodfellow,1.2 Computer and information sciences,yes,,Numerical computation for deep learning
+mavils,image_processing,1.2 Computer and information sciences,yes,,"Image processing basics in a FAU medical engineering course; 2.2/2.6 also defensible"
+mavils,numerics,1.2 Computer and information sciences,yes,,Scaling Gaussian processes (numerics of ML)
+mavils,phonetics,5.1 Psychology,no,6.2 Languages and literature,"Articulatory phonetics (places of articulation, vowels): linguistics, not psychology"
+mavils,physics_intro_02,1.3 Physical sciences,near,6.1 History and archaeology,"8.225/STS.042 Physics in the 20th Century: history of science (Faraday, Maxwell, ether)"
+mavils,psychology_MIT,5.1 Psychology,yes,,9.00 research methods
+mavils,reinforcement_learning_silver,1.2 Computer and information sciences,yes,,Markov decision processes
+mavils,sensory_systems_MIT,3.1 Basic medicine,yes,,"Visual system neuroscience (retina, LGN); neuroscience is under 3.1 in FOS"
+mavils,short_range_mit,2.7 Environmental engineering,no,2.1 Civil engineering,"Public transit service planning (headways, span of service); transport engineering/planning, nothing environmental"
+mavils,solar_resource,1.3 Physical sciences,yes,,"Solar insolation, atmospheric effects, in a photovoltaics course"
+mavils,team_dynamics_game_design_MIT,5.2 Economics and business,yes,,"Agile and team dynamics (management) in a game-design course; 1.2 also arguable"
+mavils,theory_of_computation_MIT,1.2 Computer and information sciences,yes,,"NFAs, regular languages"
+mcd,sp_0006,1.2 Computer and information sciences,yes,,Interaction effects / polyhedron attention module (ML)
+mcd,sp_0132,1.2 Computer and information sciences,yes,,Transformer neural PDE solver
+mcd,sp_0440,1.2 Computer and information sciences,yes,,Heavy-tailed linear bandits / MDPs
+mcd,sp_0457,1.2 Computer and information sciences,yes,,Zeroth-order vertical federated learning
+mcd,sp_0525,1.2 Computer and information sciences,yes,,Diff-Instruct diffusion distillation
+mcd,sp_1265,1.2 Computer and information sciences,yes,,Interactive multi-fidelity LLM fine-tuning
+mcd,sp_1317,1.2 Computer and information sciences,yes,,Differentially private synthetic data
+mcd,sp_1402,1.2 Computer and information sciences,yes,,Contextual batched bandits for recommendation
+mcd,sp_2036,1.2 Computer and information sciences,yes,,Non-smooth compositional optimization
+mcd,sp_2317,1.2 Computer and information sciences,yes,,Hierarchically gated RNN
+slide_highlight,ICML_vid_0021,1.2 Computer and information sciences,yes,,Imitation learning with normalizing flows
+slide_highlight,ICML_vid_0568,1.2 Computer and information sciences,yes,,Energy-based sequential memory models
+slide_highlight,NeurIPS_vid_0086,3.4 Medical biotechnology,no,1.2 Computer and information sciences,"EHRSQL text-to-SQL benchmark on EHR data: NLP/databases; even if read as health, it is not biotechnology"
+slide_highlight,NeurIPS_vid_0157,1.2 Computer and information sciences,yes,,"TANKBind drug-protein binding prediction (neural network); 1.6/3.4 arguable"
+slide_highlight,NeurIPS_vid_0172,1.2 Computer and information sciences,yes,,Matrix MWU in quantum zero-sum games
+slide_highlight,NeurIPS_vid_0173,1.2 Computer and information sciences,yes,,"Posted-price mechanisms for autobidders (algorithmic game theory; 5.2 adjacent)"
+m3av_a,CHI-B2FE1,1.2 Computer and information sciences,yes,,"HCI design study, smart contracts in courier deliveries"
+m3av_a,CHI-B59D8,1.2 Computer and information sciences,yes,,Crowd ideation with language embeddings
+m3av_a,CHI-B9D71,1.2 Computer and information sciences,yes,,Spreadsheet comprehension user study
+m3av_a,CHI-BA747,3.3 Health sciences,near,1.2 Computer and information sciences,"CHI HCI4D study: community health workers' perceptions of AI apps; health context, HCI subject"
+m3av_a,MLS-04954,1.1 Mathematics,yes,,Metric spaces: connectedness
+m3av_a,NIH-975B6,3.3 Health sciences,near,3.2 Clinical medicine,"Age-related macular degeneration, AREDS clinical trials (ophthalmology); first 2 slides the LLM saw are CME admin slides"
+m3av_a,Ubi-65272,1.2 Computer and information sciences,yes,,Trigger-action program synthesis for smart homes
+m3av_b,CHI-12C97,1.2 Computer and information sciences,yes,,Privacy in children's apps (developer study)
+m3av_b,CHI-4EA91,1.2 Computer and information sciences,yes,,"Participatory design of social robots for mixed-visual-ability classrooms; 5.3 adjacent"
+m3av_b,CHI-99E3F,3.3 Health sciences,near,1.2 Computer and information sciences,"CHI evaluation of a game app for people with dementia; health context, HCI subject"
+m3av_b,CHI-E64C0,1.2 Computer and information sciences,yes,,TapNet multi-task CNN for off-screen taps
+m3av_b,CHI-F05D2,1.2 Computer and information sciences,yes,,Human vs agent pair programming
+m3av_b,NIH-847CB,3.4 Medical biotechnology,near,1.6 Biological sciences,"Hepatitis C molecular virology (George Khoury memorial lecture); first slides the LLM saw are biography slides"
+m3av_b,NIH-E8189,1.6 Biological sciences,yes,,ABC transporter structural biology

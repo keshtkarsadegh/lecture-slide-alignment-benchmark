@@ -1,0 +1,33 @@
+# Apptainer image with torch and transformers for step 5's layout detection
+# (scripts/detect_layout.py detect). Built by cluster/00_layout_image.sbatch into
+#   $PROJECT_ROOT/envs/lsab/images/layout.sif
+# One image file instead of installing torch into the virtual environment: torch and its
+# CUDA libraries are tens of thousands of files, and the project space is close to its
+# inode quota. The model weights are NOT in the image (scripts/detect_layout.py fetch).
+#
+# Base: python 3.12.15-slim-bookworm, pinned by its index digest.
+# Packages: the versions of pyproject.toml's `models` extra; torch and torchvision are the
+# +cu126 builds from PyTorch's cu126 index (the GPU nodes run a CUDA 12.x driver).
+# The full list of what pip installed is written to /opt/pip-freeze.txt, and
+# scripts/detect_layout.py copies it into data/attributes/layout_boxes.json.
+Bootstrap: docker
+From: python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
+
+%post
+    set -eu
+    export PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+    python -m pip install --no-compile \
+        --index-url https://download.pytorch.org/whl/cu126 \
+        "torch==2.13.0+cu126" "torchvision==0.28.0+cu126"
+    python -m pip install --no-compile \
+        "transformers==5.17.0" "pillow==12.3.0" "numpy==2.2.6"
+    python -m pip freeze > /opt/pip-freeze.txt
+    python -c "import torch, transformers, PIL; print(torch.__version__, transformers.__version__, PIL.__version__)"
+
+%environment
+    export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+    export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+
+%labels
+    torch 2.13.0+cu126
+    transformers 5.17.0

@@ -1,0 +1,9 @@
+measure,lectures,tables,shape_ok,finite_ok,order_ok,units,median_true_rank,top3_share,chance_top3_share,ok
+bm25,60,60,60,60,60,6350,3.0000,0.5093,0.1638,True
+embed,60,60,60,60,60,6350,2.0000,0.5811,0.1638,True
+hybrid,60,60,60,60,60,6350,2.0000,0.6002,0.1638,True
+splade,60,60,60,60,60,6350,3.0000,0.5427,0.1638,True
+image,60,60,60,60,60,6350,2.0000,0.6482,0.1638,True
+cross_encoder,60,60,60,60,60,6350,2.0000,0.5833,0.1638,True
+hybrid_splade,60,60,60,60,60,6350,2.0000,0.5967,0.1638,True
+hybrid_image,60,60,60,60,60,6350,2.0000,0.6439,0.1638,True

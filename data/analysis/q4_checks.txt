@@ -1,0 +1,9 @@
+Step 16: Q4's checks (scripts/analysis_q4.py)
+
+1. 18315 units in 140 documents: each has exactly one label and one prediction for each of the 31 methods, the true slides agree, and each document has one category row: ok
+2. per method, the wrong units recounted from the predictions equal sum(n_units - n_correct) of data/final/methods/<method>.csv.gz: ok for all 31
+3. length: 2,658 + 2,001 + 13,656 = 18,315 units; all documents 18,315: ok
+3. images: 7,470 + 6,119 + 4,726 = 18,315 units; all documents 18,315: ok
+3. tables: 10,476 + 7,839 = 18,315 units; all documents 18,315: ok
+
+PROBLEMS: 0

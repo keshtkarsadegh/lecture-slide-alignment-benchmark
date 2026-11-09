@@ -1,0 +1,101 @@
+slide_id,corpus,images_ok,comment
+S001,mavils,yes,
+S002,mavils,yes,
+S003,mavils,yes,
+S004,mavils,yes,
+S005,mavils,yes,
+S006,mavils,yes,
+S007,mavils,yes,
+S008,mavils,yes,logos now dropped as repeat
+S009,mavils,yes,
+S010,mavils,yes,
+S011,m3av,yes,
+S012,m3av,yes,Oxford logo dropped as repeat
+S013,m3av,no,speaker video inset still kept in blue
+S014,m3av,yes,
+S015,m3av,yes,speaker inset dropped as repeat; screenshot kept
+S016,m3av,yes,
+S017,m3av,no,"9 real figures dropped as tiny (6 3D-model renders in top row, 3 arrangement renders); kept boxes fine"
+S018,m3av,no,main figure (agency curve + EMS timing diagram) wrongly dropped as repeat; nothing kept
+S019,m3av,no,phone screenshot and red brochure panel missed (no box); Atlanta seal logo kept in blue; small group photo dropped as tiny (minor)
+S020,m3av,yes,
+S021,m3av,yes,
+S022,m3av,yes,speaker icon dropped as tiny
+S023,m3av,yes,
+S024,m3av,yes,speaker inset and NIH logo dropped as repeat
+S025,m3av,yes,
+S026,m3av,yes,
+S027,m3av,yes,
+S028,m3av,yes,
+S029,m3av,no,"well-plate illustration in the workflow wrongly dropped as tiny; speaker inset, NIH logo and arrows correctly dropped"
+S030,m3av,no,small participant video inset on the slide still kept in blue (main speaker inset and logos dropped correctly)
+S031,m3av,no,"two of three author portrait photos dropped as tiny while the third is kept; speaker inset, NIH and player icons dropped correctly"
+S032,m3av,no,main timeline infographic still missed (no box at all); journal logo and fragments dropped as tiny
+S033,m3av,yes,
+S034,m3av,yes,
+S035,m3av,yes,
+S036,m3av,yes,
+S037,m3av,yes,
+S038,m3av,yes,
+S039,m3av,no,Complete Genomics company logo still kept in blue (nav button dropped as tiny)
+S040,m3av,yes,
+S041,m3av,no,central bar chart and crossed-out mosaic diagram still missed (no box); NIH logo dropped
+S042,m3av,yes,speaker inset dropped as repeat; demo box partly underlies it (minor)
+S043,m3av,yes,
+S044,m3av,yes,
+S045,m3av,yes,
+S046,m3av,yes,
+S047,m3av,yes,
+S048,m3av,yes,
+S049,m3av,yes,
+S050,m3av,yes,
+S051,m3av,yes,
+S052,m3av,yes,
+S053,m3av,yes,
+S054,m3av,yes,
+S055,m3av,yes,full-frame speaker shot dropped as repeat
+S056,m3av,no,KAIST / Graduate School logo still kept in blue (CHI and lab logos dropped as repeat)
+S057,m3av,yes,
+S058,m3av,yes,
+S059,m3av,yes,
+S060,m3av,yes,
+S061,m3av,no,speaker camera panel (left) still kept in blue
+S062,m3av,yes,
+S063,m3av,yes,
+S064,m3av,yes,
+S065,m3av,yes,
+S066,m3av,yes,
+S067,m3av,yes,
+S068,m3av,no,"bar chart still missed (dark, blurry frame; no box); NIH logo dropped"
+S069,m3av,yes,
+S070,m3av,yes,
+S071,m3av,yes,
+S072,m3av,no,"one picture box still spans the whole slide incl. title, bullet text and NIH watermark"
+S073,m3av,yes,
+S074,m3av,yes,
+S075,m3av,yes,
+S076,m3av,yes,
+S077,m3av,yes,
+S078,m3av,yes,
+S079,m3av,yes,
+S080,m3av,yes,
+S081,mcd,yes,
+S082,mcd,yes,
+S083,mcd,yes,
+S084,mcd,yes,
+S085,mcd,yes,
+S086,mcd,yes,
+S087,mcd,yes,
+S088,mcd,yes,
+S089,mcd,yes,
+S090,mcd,yes,
+S091,slide_highlight,no,3 of 4 bird sample thumbnails dropped as tiny (only one kept); title icon dropped as repeat
+S092,slide_highlight,yes,
+S093,slide_highlight,yes,
+S094,slide_highlight,yes,
+S095,slide_highlight,yes,"car bullet icon dropped as tiny while sibling icons kept (minor, decorative); logos dropped"
+S096,slide_highlight,yes,
+S097,slide_highlight,yes,
+S098,slide_highlight,yes,
+S099,slide_highlight,yes,
+S100,slide_highlight,yes,

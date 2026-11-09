@@ -1,0 +1,29 @@
+# Step 7: the lecture selection (docs/SELECTION.md). scripts/select_lectures.py reads it.
+# Two disjoint sets, tuning and test, drawn from data/categories/document_categories.csv
+# (step 6). The tuning set is chosen first, the test set from the lectures left.
+
+# The one seed: the seeded random order of the pool breaks the greedy fill's ties and
+# gives the random fill.
+seed = 20261012
+
+# size: the number of lectures in the set. min_per_level: every level of every axis
+# except corpus must have at least this many lectures in the set (corpus is fixed by the
+# per-corpus counts below). A minimum that cannot be met stops the run.
+[sets.tuning]
+size = 60
+min_per_level = 5
+
+[sets.test]
+size = 140
+min_per_level = 10
+
+[small_corpora]
+# Taken in whole and split between the sets: tuning gets n * tuning_share rounded half
+# up (20 -> 7, 23 -> 8, 14 -> 5), test gets the rest.
+corpora = ["mavils", "mcd", "slide_highlight"]
+tuning_share = [1, 3]
+
+[fill_corpora]
+# The rest of each set, split as equally as whole numbers allow; a remainder goes to the
+# corpora in this order.
+corpora = ["m3av_a", "m3av_b"]

@@ -1,0 +1,62 @@
+# The 8 similarity scorers (similarity/, docs/SIMILARITY.md). Every setting must be here:
+# a missing or unknown one is an error. Settings that change the numbers are part of the
+# cache key; those marked "not in the key" only change speed or transport.
+# The embedding endpoint's address and API key are NOT here: they are the LLM's
+# (LLM_API_BASE, and LLM_API_KEY or the untracked config/llm_credentials.toml; see
+# config/llm.toml and cluster/env.local.example).
+
+[bm25]
+k1 = 1.5               # term-frequency saturation: higher lets repeated words count longer
+b = 0.75               # length normalisation: 0 = none, 1 = full
+min_token_len = 2      # shorter tokens are dropped; 2 keeps "AI", "ML", "3D" (decided)
+remove_stopwords = true   # drop the English stop words in similarity/stopwords_en.txt (NLTK list; decided)
+stem = false           # Snowball English (Porter2) stemming; off by default (decided)
+
+[embed]
+model = "qwen3-embedding-4b"                        # Qwen3-Embedding-4B, 2560-dim
+max_chars = 6000          # characters per text before embedding (MaViLS' truncation)
+# Qwen3-Embedding's task instruction, sent on the unit side only, as the model card
+# writes it: "Instruct: <this>\nQuery:<unit text>". "" = none. (decided)
+query_instruction = "Given a sentence from a lecture transcript, retrieve the lecture slide it refers to"
+batch = 512               # texts per request (not in the key)
+batch_chars = 1000000     # characters per request (not in the key)
+timeout_s = 300           # (not in the key)
+max_retries = 6           # (not in the key)
+requests_per_minute = 20  # the endpoint limits per ACCOUNT: divide among parallel jobs (not in the key)
+
+[splade]
+model = "naver/splade-v3-distilbert"   # licence cc-by-nc-sa-4.0 (research use)
+max_chars = 6000
+max_length = 256          # tokens per text
+batch = 32
+min_weight = 1e-4         # terms at or below this weight are dropped
+device = "cpu"            # "cpu" or "cuda"
+
+[cross_encoder]
+model = "cross-encoder/ms-marco-MiniLM-L6-v2"
+first_stage = "hybrid"    # the matrix whose top_k slides per unit are reranked
+top_k = 5
+max_length = 256          # tokens per (unit, slide) pair
+batch = 64
+device = "cpu"
+
+[image]
+model = "vidore/colqwen2-v1.0-merged"   # Apache-2.0, adapter merged into Qwen2-VL-2B
+image_batch = 1
+query_batch = 8
+query_block = 64          # queries are length-sorted within blocks of this many
+dtype = "float32"
+device = "cpu"
+
+[hybrid]
+weight = 0.4              # share of bm25; 1 - weight is the share of embed
+
+[hybrid_splade]
+weight = 0.4              # share of splade; 1 - weight is the share of embed
+
+[hybrid_image]
+inner_weight = 0.4        # share of bm25 in this scorer's own embed + bm25 blend (decided)
+outer_weight = 0.4        # share of image; 1 - outer_weight is that text blend's share
+
+[cache]
+path = "data/similarity_cache.sqlite3"   # model-built matrices and embedding vectors (not in git)

@@ -1,0 +1,101 @@
+slide_id,user_images_ok,user_tables_ok,comment
+S001,yes,yes,
+S002,yes,yes,
+S003,yes,yes,
+S004,yes,yes,
+S005,yes,yes,
+S006,yes,yes,
+S007,yes,yes,
+S008,no,yes,two logos boxed as image
+S009,yes,yes,
+S010,yes,yes,
+S011,yes,yes,
+S012,no,yes,university logo boxed as image
+S013,no,yes,speaker video inset boxed as image
+S014,yes,yes,
+S015,no,yes,speaker video inset boxed as image
+S016,yes,yes,
+S017,yes,yes,
+S018,yes,yes,
+S019,no,yes,phone screenshot missed; tiny number icons and seal logo boxed as image
+S020,yes,yes,
+S021,yes,yes,
+S022,no,yes,audio speaker icon boxed as image
+S023,yes,yes,
+S024,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S025,no,yes,NIH watermark logo boxed as image
+S026,no,yes,NIH watermark logo boxed as image
+S027,no,yes,NIH watermark logo boxed as image
+S028,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S029,no,yes,speaker video inset boxed as image; NIH watermark logo and arrows boxed
+S030,no,yes,two speaker video insets boxed as image; NIH and Johns Hopkins logos boxed
+S031,no,yes,speaker video inset boxed as image; NIH watermark logo and player-control icons boxed
+S032,no,yes,"main timeline infographic missed; journal logo, NIH watermark and small fragments boxed"
+S033,no,yes,"NIH, NIA and LNG logos boxed as image; tiny corner fragment boxed"
+S034,no,yes,NIH watermark logo boxed as image
+S035,no,yes,NIH watermark logo boxed as image
+S036,no,yes,NIH watermark logo and player-control icon boxed as image
+S037,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S038,no,yes,NIH watermark logo boxed as image
+S039,no,yes,company logo and web nav button boxed as image
+S040,no,yes,"NIH, Partners and Harvard logos boxed as image"
+S041,no,yes,missed central bar chart and crossed-out mosaic diagram; NIH watermark logo boxed
+S042,no,yes,speaker video inset boxed as image
+S043,no,yes,speaker video inset boxed as image
+S044,no,yes,speaker video inset boxed as image
+S045,no,yes,speaker video inset boxed as image
+S046,no,yes,speaker video inset boxed as image
+S047,no,yes,university seal logo boxed as image
+S048,no,yes,speaker video inset boxed as image; one text speech bubble boxed
+S049,yes,yes,
+S050,no,yes,speaker video inset boxed as image; lab logo and twitter handle boxed
+S051,no,yes,speaker video inset boxed as image
+S052,no,yes,speaker video inset boxed as image; CHI logo boxed
+S053,no,yes,speaker video inset boxed as image
+S054,no,yes,speaker video inset boxed as image
+S055,no,yes,full-frame speaker camera shot (no slide) boxed as image
+S056,no,yes,"CHI, KAIST and lab logos boxed as image"
+S057,no,yes,speaker video inset boxed as image; sponsor logos boxed
+S058,no,yes,speaker video inset boxed as image
+S059,no,yes,speaker video inset boxed as image
+S060,yes,yes,
+S061,no,yes,speaker video inset boxed as image
+S062,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S063,yes,yes,
+S064,no,yes,speaker video inset boxed as image
+S065,no,yes,NIH watermark logo boxed as image
+S066,no,yes,NIH watermark logo boxed as image
+S067,yes,yes,
+S068,no,yes,"missed bar chart (dark, blurry frame); NIH watermark logo boxed"
+S069,no,yes,NIH watermark logo boxed as image
+S070,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S071,no,yes,speaker video inset boxed as image; NIH watermark logo boxed
+S072,no,yes,one picture box spans whole slide incl. title and bullet text instead of the separate figures
+S073,no,yes,NIH watermark logo boxed as image
+S074,no,yes,"Texas Children's, BCM and NIH logos boxed as image"
+S075,no,yes,NIH watermark logo boxed as image
+S076,no,yes,speaker video inset boxed as image
+S077,no,yes,speaker video inset boxed as image
+S078,no,yes,speaker video inset boxed as image
+S079,no,yes,speaker video inset boxed as image
+S080,no,yes,speaker video inset boxed as image
+S081,no,yes,LAMDA logo and player-control bar boxed as image
+S082,no,yes,player-control bar boxed as image
+S083,yes,yes,
+S084,yes,yes,
+S085,no,yes,beamer navigation icons boxed as image
+S086,yes,yes,
+S087,no,yes,NeurIPS logo boxed as image
+S088,no,yes,Penn State logo boxed as image
+S089,no,yes,bullet arrow glyph boxed as image
+S090,no,yes,NeurIPS logo boxed as image
+S091,no,yes,decorative title icon boxed as image
+S092,yes,yes,
+S093,no,yes,small arrow glyphs boxed as image
+S094,no,yes,NeurIPS and four institution logos boxed as image
+S095,no,yes,NeurIPS and four institution logos boxed as image
+S096,yes,yes,
+S097,yes,yes,
+S098,yes,yes,
+S099,no,yes,USC seal and USC Viterbi logos boxed as image
+S100,no,yes,USC seal and USC Viterbi logos boxed as image

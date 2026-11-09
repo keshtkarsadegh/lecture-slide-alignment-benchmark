@@ -1,0 +1,67 @@
+\begingroup\tablebodyfont
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\linewidth}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\begin{longtable}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{75pt}l>{\raggedright\arraybackslash}p{80pt}>{\raggedright\arraybackslash}p{110pt}>{\raggedright\arraybackslash}p{156pt}r@{}}
+\caption{The 31 methods by family (the grouping of the repository's registry). Kind: non-LLM, LLM (asks a language model), or mixed (a combination of both). Similarity: the similarity tables the method reads (fallback: only when the model's answer is unusable). Members: the methods a combined method runs, each at its own tuned settings. Tuned settings: the values chosen on the 60 tuning lectures; fwd and back are the shared costs per slide moved forward and back, stay the reward for staying on a slide from one unit to the next, prior the weight of the positional prior (Section~\ref{sec:methods}); the others are the method's own. Combinations: the setting combinations in the method's tuning grid, times the eight measures where the method tunes its measure; they add up to the 25{,}773 combinations of Section~\ref{sec:tuning}.}
+\label{tab:methods}\\
+\toprule
+Method & Kind & Similarity & Members & Tuned settings & Combinations \tabularnewline
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\itshape Table~\thetable{} (continued)}\tabularnewline[2pt]
+\toprule
+Method & Kind & Similarity & Members & Tuned settings & Combinations \tabularnewline
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{6}{@{}l}{\textbf{Independent labelling}} \tabularnewline
+Argmax & non-LLM & Image & -- & -- & 8 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{Monotone paths}} \tabularnewline
+DTW & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 4 & 288 \tabularnewline
+Multiscale DTW & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 4, radius 4 & 864 \tabularnewline
+Needleman--Wunsch & non-LLM & Image & -- & stay 0.2, prior 4, gap segment 0.4, gap slide 0.1 & 864 \tabularnewline
+Gotoh & non-LLM & Image & -- & stay 0.2, prior 4, gap extend 0.05, gap open 0.8, gap segment 0.4 & 2{,}592 \tabularnewline
+Drop-DTW & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 4, drop fill carry, drop percentile 80 & 1{,}728 \tabularnewline
+Anchored DP & non-LLM & Image hybrid & -- & fwd 0.05, stay 0.2, prior 4, margin q 0.75 & 864 \tabularnewline
+Semi-Markov & non-LLM & Image & -- & fwd 0.05, stay 0.1, prior 0, dur weight 0 & 864 \tabularnewline
+Adaptive prior & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 4, alpha 0.25, tau 0.05 & 1{,}296 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{Paths that may go back}} \tabularnewline
+Viterbi DP & non-LLM & Image & -- & fwd 0.05, back 1, stay 0.2, prior 4 & 864 \tabularnewline
+Rank DP & non-LLM & Image & -- & fwd 0.05, back 0.5, stay 0.2, prior 4 & 864 \tabularnewline
+Cohesion DP & non-LLM & Image & -- & fwd 0.05, back 1, stay 0.2, prior 4, strength 1, window 3 & 5{,}184 \tabularnewline
+Jump DTW & non-LLM & Image & -- & fwd 0.05, back 1, stay 0.2, prior 4, max jump 1 & 2{,}592 \tabularnewline
+Forward--backward & non-LLM & Image & -- & fwd 0.1, back 1, stay 0.4, prior 4 & 864 \tabularnewline
+Soft-DTW & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 0, gamma 1, mode expected & 1{,}728 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{Boundaries first}} \tabularnewline
+PELT & non-LLM & Image & -- & prior 4, change penalty 0.5 & 128 \tabularnewline
+BOCPD & non-LLM & Image & -- & prior 8, hazard 0.25 & 128 \tabularnewline
+WBS2 & non-LLM & Embed--BM25 hybrid & -- & prior 8, n intervals 40 & 96 \tabularnewline
+TextTiling & non-LLM & BM25 & -- & prior 16, window 3 & 64 \tabularnewline
+TextTiling DP & non-LLM & Embed--BM25 hybrid & -- & prior 8, window 3 & 64 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{Transport}} \tabularnewline
+OPW & non-LLM & Image hybrid & -- & prior 0, lambda1 1, lambda2 0.3, sigma 2 & 864 \tabularnewline
+Unbalanced OT & non-LLM & Image hybrid & -- & prior 8, drop mass 0.5, eps 0.02, reg m 0.1 & 576 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{Consensus}} \tabularnewline
+Ensemble vote & mixed & Embed--BM25 hybrid; Image & Viterbi DP, DTW, Needleman--Wunsch, Cohesion DP, PELT, LLM single call & smooth on; members tuned & 2 \tabularnewline
+Score fusion & non-LLM & Image & Soft-DTW, Cohesion DP, Needleman--Wunsch & nw gamma 0.3; members tuned & 3 \tabularnewline
+MBR decoding & non-LLM & Image & -- & fwd 0.05, stay 0.2, prior 0, k 20, temperature none & 1{,}728 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{LLM reads the text}} \tabularnewline
+LLM single call & LLM & Embed--BM25 hybrid (fallback) & -- & -- & 1 \tabularnewline
+LLM monotone & LLM & Embed--BM25 hybrid (fallback) & -- & -- & 1 \tabularnewline
+LLM hierarchical & LLM & -- & -- & leaf max pages 5, use boundary refinement off & 4 \tabularnewline
+\addlinespace
+\multicolumn{6}{@{}l}{\textbf{LLM with similarity scores}} \tabularnewline
+LLM re-rank (5 methods) & mixed & Image & DTW, Viterbi DP, PELT, Needleman--Wunsch, Cohesion DP & members tuned & 1 \tabularnewline
+LLM-prior DP & mixed & Image & LLM hierarchical (its prior) & fwd 0.05, back 1, stay 0.2, prior 5; members tuned & 648 \tabularnewline
+LLM monotone (constrained) & LLM & Embed--BM25 hybrid (fallback) & -- & -- & 1 \tabularnewline
+\end{longtable}
+\endgroup

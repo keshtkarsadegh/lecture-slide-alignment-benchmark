@@ -1,0 +1,45 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\caption{Q1: the 31 methods on the 140 test lectures, by mean accuracy (the share of a lecture's transcript units placed on their true slide, averaged over the lectures). Rank 1 is the highest accuracy; ranks are by the unrounded accuracy. Per lecture, each method is costed as if it ran alone (a combined method carries its members' costs): Compute, its own run time; Tables, building the similarity tables it reads, model loads spread over the lectures; LLM calls and LLM, the successful language-model calls and their own duration; Total, the sum of the three times. Tables 0.0: reads no similarity table. --: not part of that kind's cost (an LLM method is charged its calls, not its own run time).}
+\label{tab:q1}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rllrrrrrr@{}}
+\toprule
+ & & & & \multicolumn{5}{c}{Per lecture} \\
+\cmidrule(lr){5-9}
+Rank & Method & Kind & \begin{tabular}[b]{@{}r@{}}Accuracy\\(\%)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Compute\\(s)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Tables\\(s)\end{tabular} & \begin{tabular}[b]{@{}r@{}}LLM\\calls\end{tabular} & \begin{tabular}[b]{@{}r@{}}LLM\\(s)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Total\\(s)\end{tabular} \\
+\midrule
+1 & Score fusion & non-LLM & 72.2 & 0.211 & 22.7 & -- & -- & 22.9 \\
+2 & Gotoh & non-LLM & 72.1 & 0.058 & 22.7 & -- & -- & 22.8 \\
+3 & Needleman--Wunsch & non-LLM & 71.4 & 0.017 & 22.7 & -- & -- & 22.7 \\
+4 & DTW & non-LLM & 71.3 & 0.002 & 22.7 & -- & -- & 22.7 \\
+5 & Soft-DTW & non-LLM & 71.1 & 0.005 & 22.7 & -- & -- & 22.7 \\
+6 & Ensemble vote & mixed & 71.1 & 0.028 & 27.7 & 1.0 & 11.7 & 39.3 \\
+7 & Adaptive prior & non-LLM & 71.1 & 0.002 & 22.7 & -- & -- & 22.7 \\
+8 & Anchored DP & non-LLM & 70.9 & 0.003 & 27.7 & -- & -- & 27.7 \\
+9 & Drop-DTW & non-LLM & 70.9 & 0.014 & 22.7 & -- & -- & 22.7 \\
+10 & Multiscale DTW & non-LLM & 70.8 & 0.004 & 22.7 & -- & -- & 22.7 \\
+11 & Semi-Markov & non-LLM & 70.5 & 0.180 & 22.7 & -- & -- & 22.9 \\
+12 & LLM re-rank (5 methods) & mixed & 70.2 & 0.028 & 22.7 & 1.0 & 1.2 & 23.9 \\
+13 & MBR decoding & non-LLM & 70.2 & 0.011 & 22.7 & -- & -- & 22.7 \\
+14 & PELT & non-LLM & 69.8 & 0.003 & 22.7 & -- & -- & 22.7 \\
+15 & Jump DTW & non-LLM & 68.0 & 0.002 & 22.7 & -- & -- & 22.7 \\
+16 & Cohesion DP & non-LLM & 68.0 & 0.004 & 22.7 & -- & -- & 22.7 \\
+17 & LLM-prior DP & mixed & 67.7 & 0.002 & 22.7 & 11.0 & 42.4 & 65.1 \\
+18 & Viterbi DP & non-LLM & 67.5 & 0.002 & 22.7 & -- & -- & 22.7 \\
+19 & Forward--backward & non-LLM & 66.0 & 0.002 & 22.7 & -- & -- & 22.7 \\
+20 & BOCPD & non-LLM & 62.1 & 0.006 & 22.7 & -- & -- & 22.7 \\
+21 & Rank DP & non-LLM & 61.6 & 0.002 & 22.7 & -- & -- & 22.7 \\
+22 & Unbalanced OT & non-LLM & 61.2 & 0.008 & 27.7 & -- & -- & 27.7 \\
+23 & OPW & non-LLM & 54.3 & 0.039 & 27.7 & -- & -- & 27.7 \\
+24 & LLM single call & LLM & 52.0 & -- & 4.9 & 1.0 & 11.7 & 16.6 \\
+25 & Argmax & non-LLM & 50.6 & $<$0.001 & 22.7 & -- & -- & 22.7 \\
+26 & LLM hierarchical & LLM & 49.7 & -- & 0.0 & 11.0 & 42.4 & 42.4 \\
+27 & WBS2 & non-LLM & 35.5 & 0.072 & 4.9 & -- & -- & 5.0 \\
+28 & LLM monotone & LLM & 33.3 & -- & 4.9 & 1.0 & 3.7 & 8.7 \\
+29 & LLM monotone (constrained) & LLM & 32.1 & -- & 4.9 & 1.0 & 1.5 & 6.5 \\
+30 & TextTiling & non-LLM & 29.1 & 0.003 & $<$0.1 & -- & -- & $<$0.1 \\
+31 & TextTiling DP & non-LLM & 28.9 & 0.009 & 4.9 & -- & -- & 4.9 \\
+\bottomrule
+\end{tabular*}
+\end{table}

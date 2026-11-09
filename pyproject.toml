@@ -1,0 +1,42 @@
+[project]
+name = "lecture-slide-alignment-benchmark"
+version = "0.1.0"
+description = "Benchmark of transcript-to-slide alignment methods on public lecture corpora"
+requires-python = ">=3.12"
+# Step 1 (scripts/download.py) uses the standard library only; step 2 (scripts/prepare.py)
+# reads PDFs and renders their pages (PyMuPDF) and reads the MaViLS xlsx files (openpyxl);
+# step 3 (methods/) needs numpy; its LLM client uses the standard library only.
+# Step 4 (similarity/): bm25, embed and the blends need numpy only (the embedding client is
+# standard library; bm25's optional stemming uses snowballstemmer, pure Python); splade, cross_encoder and image run local models and need the
+# `models` extra below, imported only when a matrix is not in the cache. NOT installed yet.
+# Step 5 (scripts/attributes.py, assign_discipline.py, detect_layout.py sheet) needs nothing
+# new. Its layout detector (detect_layout.py detect) runs the `models` extra's torch,
+# torchvision, transformers and pillow, at exactly these versions, from the Apptainer image
+# cluster/layout.def; the weights are pinned (commit + sha256) in config/attributes.toml.
+# Step 16 (scripts/analysis_q4.py) and step 17 (scripts/paper_assets.py) draw their
+# figures with matplotlib.
+dependencies = [
+    "pymupdf==1.26.7",
+    "openpyxl==3.1.5",
+    "numpy==2.2.6",
+    "snowballstemmer==2.2.0",
+    "matplotlib==3.11.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+# Pinned versions (cluster/similarity.def installs exactly these). torch and torchvision are
+# the +cu126 builds from PyTorch's cu126 index (the GPU nodes run a CUDA 12.x driver).
+models = [
+    "torch==2.13.0",
+    "torchvision==0.28.0",
+    "transformers==5.17.0",
+    "colpali-engine==0.3.18",
+    "accelerate==1.15.0",
+    "pillow==12.3.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts", "."]
+addopts = "-p no:cacheprovider"

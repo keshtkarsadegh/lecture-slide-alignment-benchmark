@@ -1,0 +1,28 @@
+axis,level,tuning,test,pool
+corpus,mavils,7,13,20
+corpus,m3av_a,20,52,538
+corpus,m3av_b,20,51,536
+corpus,mcd,8,15,23
+corpus,slide_highlight,5,9,14
+text_source,pdf_text_layer,7,12,19
+text_source,corpus_corrected_ocr,40,103,1074
+text_source,tesseract_ocr,13,25,38
+length,short,26,54,458
+length,medium,18,38,311
+length,long,16,48,362
+images,low,26,58,377
+images,medium,16,42,377
+images,high,18,40,377
+tables,none,35,69,732
+tables,some,25,71,399
+noise,low,20,50,377
+noise,medium,15,39,377
+noise,high,25,51,377
+text_density,low,16,36,377
+text_density,medium,15,45,377
+text_density,high,29,59,377
+discipline,Computer and information sciences,35,95,742
+discipline,Natural sciences (other),9,13,177
+discipline,Engineering and technology,5,10,39
+discipline,Medical and health sciences,6,12,133
+discipline,Social sciences,5,10,40

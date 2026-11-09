@@ -1,0 +1,41 @@
+# Apptainer image with a fixed Tesseract for step 2b (scripts/ocr.py).
+# Built by cluster/00_tesseract_image.sbatch into
+#   $PROJECT_ROOT/envs/lsab-tesseract/tesseract.sif
+# One image file instead of a conda environment: the project space is close to its
+# inode quota, and an image pins the binary, its libraries and the language data together.
+#
+# Base: Ubuntu 24.04 (noble), the dated tag noble-20260810, pinned by its index digest.
+# Tesseract 5.3.4 and the English model are Ubuntu's own packages, pinned to exact
+# versions (both are in the noble release pocket, which never changes):
+#   tesseract-ocr / libtesseract5   5.3.4-1build5
+#   tesseract-ocr-eng               1:4.1.0-2   (eng.traineddata of tessdata_fast 4.1.0)
+#   tesseract-ocr-osd               1:4.1.0-2   (a dependency; not used: no -l osd)
+Bootstrap: docker
+From: ubuntu@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517
+
+%post
+    set -eu
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        tesseract-ocr=5.3.4-1build5 libtesseract5=5.3.4-1build5 \
+        tesseract-ocr-eng=1:4.1.0-2 tesseract-ocr-osd=1:4.1.0-2
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    # What is inside, for the record written by scripts/ocr.py.
+    dpkg-query -W -f '${Package}\t${Version}\n' > /opt/dpkg-versions.tsv
+    sha256sum /usr/share/tesseract-ocr/5/tessdata/eng.traineddata > /opt/eng.traineddata.sha256
+
+%environment
+    export TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
+    export LC_ALL=C
+    # One thread per tesseract process: scripts/ocr.py runs one process per CPU, and
+    # OpenMP threads inside each would only compete for the same cores.
+    export OMP_THREAD_LIMIT=1
+
+%runscript
+    exec tesseract "$@"
+
+%labels
+    tesseract 5.3.4-1build5 (Ubuntu noble)
+    eng_traineddata tesseract-ocr-eng 1:4.1.0-2 (tessdata_fast 4.1.0)

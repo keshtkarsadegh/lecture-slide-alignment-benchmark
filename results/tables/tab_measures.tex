@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\caption{Accuracy per similarity measure, on the tuning lectures: the test lectures were run with each method's chosen measure only. Measures from the cheapest table to the most expensive. Table: seconds to build the measure's table per test lecture, with the tables it is built from and the model load, as in the Tables column of Table~\ref{tab:q1}. Chosen by: how many of the 24 methods that read one tuned table chose the measure in tuning; the other 7 (Score fusion, Ensemble vote, LLM re-rank (5 methods), LLM single call, LLM hierarchical, LLM monotone and LLM monotone (constrained)) choose no measure: they read no table, the fixed embed--BM25 hybrid for a fallback only, or their members' tables. Then, for five methods, the highest mean accuracy over their tuning settings with that measure (each lecture counts once); Any of the 24: the highest over all 24 methods. Bold: the highest in the column.}
+\label{tab:measures}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{6}{c}{Highest mean accuracy on the 60 tuning lectures (\%)} \\
+\cmidrule(l){4-9}
+Measure & \begin{tabular}[b]{@{}r@{}}Table\\(s)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Chosen\\by\end{tabular} & \begin{tabular}[b]{@{}r@{}}Argmax\end{tabular} & \begin{tabular}[b]{@{}r@{}}Viterbi\\DP\end{tabular} & \begin{tabular}[b]{@{}r@{}}DTW\end{tabular} & \begin{tabular}[b]{@{}r@{}}Needleman--\\Wunsch\end{tabular} & \begin{tabular}[b]{@{}r@{}}Text-\\Tiling\end{tabular} & \begin{tabular}[b]{@{}r@{}}Any of\\the 24\end{tabular} \\
+\midrule
+BM25 & $<$0.1 & 1 & 48.7 & 66.4 & 70.0 & 70.3 & \textbf{35.9} & 70.6 \\
+SPLADE & 0.3 & 0 & 43.6 & 61.4 & 63.4 & 63.9 & 30.9 & 65.1 \\
+Embed & 4.9 & 0 & 45.4 & 64.6 & 66.7 & 68.1 & 34.0 & 70.0 \\
+Embed--BM25 hybrid & 4.9 & 2 & 51.1 & 67.7 & 71.7 & 72.9 & 34.4 & 73.2 \\
+Embed--SPLADE hybrid & 5.2 & 0 & 47.5 & 65.6 & 68.5 & 69.2 & 34.7 & 70.3 \\
+Cross-encoder & 5.6 & 0 & 49.3 & 66.0 & 70.1 & 71.1 & 33.3 & 71.5 \\
+Image & 22.7 & 18 & \textbf{54.2} & \textbf{71.2} & \textbf{74.3} & \textbf{75.1} & 33.5 & \textbf{75.7} \\
+Image hybrid & 27.7 & 3 & 54.1 & 70.2 & 74.0 & 75.0 & 34.5 & 75.5 \\
+\bottomrule
+\end{tabular*}
+\end{table}
