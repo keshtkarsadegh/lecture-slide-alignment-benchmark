@@ -137,6 +137,9 @@ written as LaTeX macros into `tables/numbers.tex` so the text quotes none by han
   lectures with replacement (seed 20261011, the project seed), every method averaged over
   the same resamples; per method the 2.5 and 97.5 percentiles of its mean and of rank 1's
   mean minus its own (a paired difference), from step 13's per-lecture tables;
+- **paired tests** (`tables/tab_significance.tex`): per method a two-sided paired t-test
+  of rank 1's per-lecture accuracy minus its own over the test lectures, with Holm's
+  correction over the 30 comparisons at the 5 % level (the same per-lecture tables);
 - **error distance** (`tables/tab_severity.tex`): per method, pooled over the test units
   of `data/final/predictions/`, the wrong units as a share of all units, the share of
   the wrong units one slide from their true slide, and their mean distance in slides;
@@ -183,6 +186,7 @@ by `scripts/heatmap.py`, so the approved layout is defined once.
 | `tables/tab_tuning.tex` | per method the best and the chosen tuning accuracy and the test accuracy (appendix) |
 | `tables/tab_datasets.tex` | every method's accuracy per dataset (appendix) |
 | `tables/tab_bootstrap.tex` | per method the bootstrap interval of its mean accuracy and of its difference to rank 1 (appendix) |
+| `tables/tab_significance.tex` | per method the paired t-test against rank 1 over the test lectures, Holm-corrected (appendix) |
 | `tables/tab_severity.tex` | per method the wrong units, the share one slide off and their mean distance (appendix) |
 | `tables/tab_prepare.tex` | per dataset the lectures dropped, kept and cut and the units removed and kept by step 2 (appendix) |
 | `tables/prompts.tex` | the prompts of the final run, verbatim from `methods/llm.py` (appendix) |

@@ -658,6 +658,52 @@ def test_bootstrap_numbers_count_the_top_band_intervals_that_hold_zero():
     assert all("-" not in vals[k] or "$-$" in vals[k] for k in vals if k.endswith(("Lo", "Hi")))
 
 
+def test_paired_t_matches_the_hand_computed_p():
+    # d = 1, 2, 3, 4: mean 2.5, sd sqrt(5/3), t = 2.5 / (sd / 2) = 3.8730, df 3; the
+    # two-sided p is I_{3/(3+t^2)}(1.5, 0.5) = 0.0304663 (scipy.stats.ttest_1samp agrees)
+    assert P.paired_t([1.0, 2.0, 3.0, 4.0]) == pytest.approx(0.030466291662170977, abs=1e-6)
+    assert P.paired_t([0.5, -0.2, 0.3]) == pytest.approx(0.4380485130509837, abs=1e-6)
+    assert P.paired_t([-1.0, -2.0, -3.0, -4.0]) == pytest.approx(P.paired_t([1.0, 2.0, 3.0, 4.0]))
+    assert P.paired_t([0.0, 0.0, 0.0]) == 1.0 and P.paired_t([2.0, 2.0]) == 0.0
+    assert P.reg_beta(1.0, 1.0, 0.3) == pytest.approx(0.3)             # the uniform CDF
+    assert P.reg_beta(2.0, 3.0, 0.4) == pytest.approx(0.5248)            # 1 - P(Bin(4, .4) <= 1)
+
+
+def test_holm_steps_down_and_stops_at_the_first_failure():
+    # sorted: .001 <= .05/4, .01 <= .05/3, .03 > .05/2 stops, so .04 is not rejected
+    # though it is under .05
+    assert P.holm([0.04, 0.001, 0.03, 0.01]) == [False, True, False, True]
+    assert P.holm([0.01, 0.02, 0.03]) == [True, True, True]               # .01<=.0167, .02<=.025, .03<=.05
+    assert P.holm([0.2, 0.001]) == [False, True]
+    assert P.holm([]) == []
+
+
+def test_significance_table_and_its_check():
+    d = made_up()
+    sd = P.significance_data(d)
+    assert P.check_significance(sd, d) == []
+    ranked = sorted(d["q1"], key=lambda r: r["rank"])
+    assert [r["method"] for r in sd["rows"]] == [r["method"] for r in ranked]
+    assert sd["ref"] == ranked[0]["method"] and sd["rows"][0]["diff"] is None
+    acc = {r["method"]: r["accuracy"] for r in ranked}
+    for r in sd["rows"][1:]:
+        assert r["diff"] == pytest.approx(acc[sd["ref"]] - acc[r["method"]])
+        assert 0 <= r["p"] <= 1 and 0 <= r["higher"] <= sd["n"]
+    text = P.tab_significance(sd)
+    assert balanced(text) and r"\label{tab:significance}" in text
+    body = text.split(r"\midrule")[1].split(r"\bottomrule")[0].strip().splitlines()
+    assert len(body) == len(METHODS) == 31 and all(line.count(" & ") == 5 for line in body)
+    assert body[0].startswith(P.tex(P.N.method_name(sd["ref"])))
+    assert body[0].endswith(r"-- & -- & -- & -- \\")
+    assert all(line.endswith((r"yes \\", r"no \\")) for line in body[1:])
+    vals = P.significance_numbers(sd, [r["method"] for r in ranked][:P.TOP_BAND])
+    assert vals["SigTests"] == "30"
+    assert int(vals["SigOutsideCount"]) == len(METHODS) - P.TOP_BAND
+    sd["rows"][1]["diff"] += 0.1
+    sd["rows"] = sd["rows"][:-1]
+    assert len(P.check_significance(sd, d)) == 2
+
+
 def test_unit_data_measures_how_far_the_wrong_units_are(tmp_path):
     right = {k: list(v) for k, v in TRUTH.items()}
     near = {("mavils", "a"): [1, 2, 2, 3, 3, 3], ("mcd", "b"): [2, 2, 2, 3]}

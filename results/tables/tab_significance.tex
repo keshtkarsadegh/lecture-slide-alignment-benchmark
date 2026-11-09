@@ -1,0 +1,43 @@
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{1em}
+\caption{Paired tests against Score fusion over the 140 test lectures: a two-sided paired $t$-test of the per-lecture accuracy, Score fusion's minus the method's, with Holm's correction for the 30 comparisons at the 5\,\% level. Accuracy: the mean accuracy of Table~\ref{tab:q1}. Mean difference: the mean of the per-lecture differences, Score fusion minus the method, in points. Lectures higher: the test lectures on which the method is more accurate than Score fusion. $p$: the test's p-value before the correction. Significant: yes, the difference holds after the correction; no, it does not. Methods in the order of Table~\ref{tab:q1}.}
+\label{tab:significance}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & \begin{tabular}[b]{@{}r@{}}Accuracy\\(\%)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean\\difference\\(points)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Lectures\\higher\\(of 140)\end{tabular} & $p$ & Significant \\
+\midrule
+Score fusion & 72.2 & -- & -- & -- & -- \\
+Gotoh & 72.1 & 0.1 & 54 & 0.713 & no \\
+Needleman--Wunsch & 71.4 & 0.8 & 34 & 0.024 & no \\
+DTW & 71.3 & 0.9 & 32 & 0.020 & no \\
+Soft-DTW & 71.1 & 1.1 & 49 & 0.104 & no \\
+Ensemble vote & 71.1 & 1.1 & 34 & $<$0.001 & yes \\
+Adaptive prior & 71.1 & 1.1 & 37 & 0.035 & no \\
+Anchored DP & 70.9 & 1.3 & 53 & 0.137 & no \\
+Drop-DTW & 70.9 & 1.3 & 33 & $<$0.001 & yes \\
+Multiscale DTW & 70.8 & 1.4 & 31 & 0.003 & yes \\
+Semi-Markov & 70.5 & 1.7 & 35 & 0.008 & no \\
+LLM re-rank (5 methods) & 70.2 & 2.0 & 26 & $<$0.001 & yes \\
+MBR decoding & 70.2 & 2.0 & 37 & 0.002 & yes \\
+PELT & 69.8 & 2.4 & 18 & $<$0.001 & yes \\
+Jump DTW & 68.0 & 4.2 & 22 & $<$0.001 & yes \\
+Cohesion DP & 68.0 & 4.2 & 16 & $<$0.001 & yes \\
+LLM-prior DP & 67.7 & 4.5 & 31 & $<$0.001 & yes \\
+Viterbi DP & 67.5 & 4.7 & 18 & $<$0.001 & yes \\
+Forward--backward & 66.0 & 6.2 & 17 & $<$0.001 & yes \\
+BOCPD & 62.1 & 10.1 & 17 & $<$0.001 & yes \\
+Rank DP & 61.6 & 10.6 & 16 & $<$0.001 & yes \\
+Unbalanced OT & 61.2 & 11.0 & 18 & $<$0.001 & yes \\
+OPW & 54.3 & 17.9 & 18 & $<$0.001 & yes \\
+LLM single call & 52.0 & 20.2 & 32 & $<$0.001 & yes \\
+Argmax & 50.6 & 21.6 & 5 & $<$0.001 & yes \\
+LLM hierarchical & 49.7 & 22.6 & 18 & $<$0.001 & yes \\
+WBS2 & 35.5 & 36.7 & 10 & $<$0.001 & yes \\
+LLM monotone & 33.3 & 38.9 & 13 & $<$0.001 & yes \\
+LLM monotone (constrained) & 32.1 & 40.1 & 8 & $<$0.001 & yes \\
+TextTiling & 29.1 & 43.1 & 11 & $<$0.001 & yes \\
+TextTiling DP & 28.9 & 43.3 & 7 & $<$0.001 & yes \\
+\bottomrule
+\end{tabular*}
+\end{table}

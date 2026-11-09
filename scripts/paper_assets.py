@@ -53,6 +53,8 @@ OUTPUT (results/, in git)
   tables/tab_datasets.tex     every method's accuracy per dataset (appendix)
   tables/tab_bootstrap.tex    every method's bootstrap interval over the test lectures,
                               and that of its difference to rank 1 (appendix)
+  tables/tab_significance.tex every method's paired t-test against rank 1 over the test
+                              lectures, Holm-corrected (appendix)
   tables/tab_severity.tex     how far each method's wrong units are from their true
                               slide (appendix)
   tables/tab_prepare.tex      per dataset the lectures dropped, kept and cut and the
@@ -97,10 +99,14 @@ THE CHECKS (the run stops with exit code 1 and writes nothing when one fails):
  11. (check_bootstrap) the per-lecture accuracies the bootstrap resamples average to Q1's;
  12. (check_prepared) summary.csv and the dropped files agree, every drop reason has a
      column, the M3AV talks in both dropped files are in neither half of the split, and
-     the kept lectures are Table 1's pool per dataset (so \\PrepPool is \\PoolLectures).
+     the kept lectures are Table 1's pool per dataset (so \\PrepPool is \\PoolLectures);
+ 13. (check_significance) the paired tests are of every method of Q1 but rank 1, and each
+     mean paired difference is Q1's accuracy difference to rank 1 within 0.05 points.
 
 The bootstrap draws BOOT_DRAWS resamples of the test lectures with the project seed
-(BOOT_SEED), so its table is the same on every run.
+(BOOT_SEED), so its table is the same on every run. The paired t-tests against rank 1
+(SIG_ALPHA, Holm's correction) compute the t distribution with the regularised incomplete
+beta function, without scipy.
 
     python scripts/paper_assets.py [--prepared data/prepared]
 """
@@ -1421,6 +1427,155 @@ def tab_bootstrap(bd: Mapping[str, Any]) -> str:
            "Table~\\ref{tab:q1}.")
     # one method per row, every name on one line, columns 2 em apart (as Table F2)
     return table_env(cap, "tab:bootstrap", "@{}lrrrrr@{}", body, tabcolsep=APPENDIX_SEP)
+
+
+#: The level of the paired tests against rank 1, family-wise over all of them (Holm).
+SIG_ALPHA = 0.05
+
+
+def _beta_cf(a: float, b: float, x: float) -> float:
+    """The continued fraction of the incomplete beta function (modified Lentz), which
+    converges fast for x < (a + 1) / (a + b + 2); reg_beta uses the symmetry otherwise.
+    Written out because the project does not depend on scipy for one distribution."""
+    tiny, eps = 1e-300, 1e-15
+    c, dd = 1.0, 1.0 - (a + b) * x / (a + 1)
+    dd = 1 / (dd if abs(dd) > tiny else tiny)
+    h = dd
+    for m in range(1, 1000):
+        for num in (m * (b - m) * x / ((a + 2 * m - 1) * (a + 2 * m)),
+                    -(a + m) * (a + b + m) * x / ((a + 2 * m) * (a + 2 * m + 1))):
+            dd = 1 + num * dd
+            dd = 1 / (dd if abs(dd) > tiny else tiny)
+            c = 1 + num / c
+            c = c if abs(c) > tiny else tiny
+            h *= dd * c
+        if abs(dd * c - 1) < eps:
+            return h
+    raise ArithmeticError("the incomplete beta fraction did not converge")
+
+
+def reg_beta(a: float, b: float, x: float) -> float:
+    """The regularised incomplete beta function I_x(a, b)."""
+    if x <= 0:
+        return 0.0
+    if x >= 1:
+        return 1.0
+    front = math.exp(math.lgamma(a + b) - math.lgamma(a) - math.lgamma(b)
+                     + a * math.log(x) + b * math.log1p(-x))
+    if x < (a + 1) / (a + b + 2):
+        return front * _beta_cf(a, b, x) / a
+    return 1 - front * _beta_cf(b, a, 1 - x) / b
+
+
+def paired_t(diffs: Sequence[float]) -> float:
+    """The two-sided p-value of the paired t-test of the per-lecture differences against
+    a mean of 0: t = mean / (sd / sqrt(n)) on n - 1 degrees of freedom, and
+    P(|T| >= |t|) = I_{df / (df + t^2)}(df / 2, 1 / 2). Differences that are all equal
+    have no spread: p is 1 if they are 0 and 0 otherwise."""
+    n = len(diffs)
+    if n < 2:
+        raise ValueError("a paired t-test needs at least two lectures")
+    mean = statistics.mean(diffs)
+    sd = statistics.stdev(diffs)
+    if sd == 0:
+        return 1.0 if mean == 0 else 0.0
+    t = mean / (sd / math.sqrt(n))
+    df = n - 1
+    return reg_beta(df / 2, 0.5, df / (df + t * t))
+
+
+def holm(ps: Sequence[float], alpha: float = SIG_ALPHA) -> list[bool]:
+    """Holm's step-down correction: per test whether it is rejected at family-wise level
+    alpha. The k-th smallest p (from 0) is compared with alpha / (K - k), and the first
+    that fails stops the rejections; it holds the family-wise error without assuming the
+    tests independent, which they are not (every test shares rank 1's lectures)."""
+    order = sorted(range(len(ps)), key=lambda i: ps[i])
+    out = [False] * len(ps)
+    for k, i in enumerate(order):
+        if ps[i] > alpha / (len(ps) - k):
+            break
+        out[i] = True
+    return out
+
+
+def significance_data(d: Mapping[str, Any], alpha: float = SIG_ALPHA) -> dict[str, Any]:
+    """Per method in Q1's order: Q1's accuracy and, against rank 1 ("ref") on the same
+    test lectures, the mean of rank 1's accuracy minus the method's (points), the
+    lectures where the method is the more accurate, the paired t-test's p and whether
+    it holds after Holm's correction over the other methods (None for rank 1). The same
+    per-lecture accuracies as the bootstrap, so the two appendix tables pair alike."""
+    acc = lecture_accuracies(d)
+    q1 = sorted(d["q1"], key=lambda r: r["rank"])
+    ref = q1[0]["method"]
+    rows = [{"method": r["method"], "accuracy": r["accuracy"], "diff": None,
+             "higher": None, "p": None, "significant": None} for r in q1]
+    others = [r for r in rows if r["method"] != ref]
+    for r in others:
+        diffs = [a - b for a, b in zip(acc[ref], acc[r["method"]])]
+        r.update(diff=statistics.mean(diffs), higher=sum(x < 0 for x in diffs),
+                 p=paired_t(diffs))
+    for r, sig in zip(others, holm([r["p"] for r in others], alpha)):
+        r["significant"] = sig
+    return {"ref": ref, "rows": rows, "n": len(acc[ref]), "alpha": alpha}
+
+
+def check_significance(sd: Mapping[str, Any], d: Mapping[str, Any]) -> list[str]:
+    """Check 13: the tests are of every method of Q1 but rank 1, and each mean paired
+    difference is Q1's accuracy of rank 1 minus the method's (within 0.05 points), so
+    the tests pair the lectures Q1 ranks."""
+    q1 = {r["method"]: r["accuracy"] for r in d["q1"]}
+    tested = {r["method"] for r in sd["rows"] if r["diff"] is not None}
+    out = [] if tested == set(q1) - {sd["ref"]} else [
+        f"significance: tested {sorted(tested)}, Q1 has {sorted(set(q1) - {sd['ref']})} "
+        "besides rank 1"]
+    return out + [f"significance: {r['method']}'s mean difference {r['diff']!r}, Q1 "
+                  f"{q1[sd['ref']] - q1[r['method']]!r}" for r in sd["rows"]
+                  if r["diff"] is not None and r["method"] in q1
+                  and abs(r["diff"] - (q1[sd["ref"]] - q1[r["method"]])) > 0.05]
+
+
+def p_value(p: float) -> str:
+    """Three decimals, "<0.001" below 0.001."""
+    return r"$<$0.001" if p < 0.001 else f"{p:.3f}"
+
+
+def significance_numbers(sd: Mapping[str, Any], top: Sequence[str]) -> dict[str, str]:
+    """The text's numbers of the paired tests (Q1): how many tests, which other methods
+    of the top band are not significantly below rank 1 after the correction, and how
+    many of the methods outside the band are."""
+    tested = [r for r in sd["rows"] if r["significant"] is not None]
+    not_sig = [r["method"] for r in tested if r["method"] in top and not r["significant"]]
+    outside = [r for r in tested if r["method"] not in top]
+    return {"SigTests": _int(len(tested)),
+            "SigTopNotSig": _int(len(not_sig)),
+            "SigTopNotSigNames": _join([tex(N.method_name(m)) for m in not_sig]),
+            "SigOutsideSig": _int(sum(r["significant"] for r in outside)),
+            "SigOutsideCount": _int(len(outside))}
+
+
+def tab_significance(sd: Mapping[str, Any]) -> str:
+    ref = tex(N.method_name(sd["ref"]))
+    n = sd["n"]
+    k = sum(r["diff"] is not None for r in sd["rows"])
+    body = [row(["Method", head_cell("Accuracy", "(\\%)"),
+                 head_cell("Mean", "difference", "(points)"),
+                 head_cell("Lectures", "higher", f"(of {n})"), "$p$", "Significant"]),
+            r"\midrule"]
+    for r in sd["rows"]:
+        test = (["--"] * 4 if r["diff"] is None else
+                [signed(r["diff"]), _int(r["higher"]), p_value(r["p"]),
+                 "yes" if r["significant"] else "no"])
+        body.append(row([tex(N.method_name(r["method"])), f"{r['accuracy']:.1f}", *test]))
+    cap = (f"Paired tests against {ref} over the {n} test lectures: a two-sided paired "
+           f"$t$-test of the per-lecture accuracy, {ref}'s minus the method's, with Holm's "
+           f"correction for the {k} comparisons at the {100 * sd['alpha']:g}\\,\\% level. "
+           "Accuracy: the mean accuracy of Table~\\ref{tab:q1}. Mean difference: the mean of "
+           f"the per-lecture differences, {ref} minus the method, in points. Lectures higher: "
+           f"the test lectures on which the method is more accurate than {ref}. $p$: the "
+           "test's p-value before the correction. Significant: yes, the difference holds "
+           "after the correction; no, it does not. Methods in the order of "
+           "Table~\\ref{tab:q1}.")
+    return table_env(cap, "tab:significance", "@{}lrrrrr@{}", body, tabcolsep=APPENDIX_SEP)
 
 
 def severity(ud: Mapping[str, Any]) -> dict[str, dict[str, float]]:
@@ -3301,6 +3456,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     problems += check_split(d)
     bd = bootstrap_data(d)
     problems += check_bootstrap(bd, d)
+    sd = significance_data(d)
+    problems += check_significance(sd, d)
     try:
         pr: Optional[dict[str, Any]] = read_prepared(args.prepared)
     except PreparedMissing as e:
@@ -3323,6 +3480,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     for part in (text_numbers(d, td, md["build"]["image"]), measure_numbers(md),
                  method_numbers(d, md), quoted_numbers(d, md, ud, top), check_numbers(),
                  example_numbers(ex), bootstrap_numbers(bd, top),
+                 significance_numbers(sd, top),
                  severity_numbers(sv, top)):
         for k, v in part.items():
             put(more, k, v)
@@ -3335,6 +3493,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
              "tab_tuning": tab_tuning(td, md["n_tuning"], n_test),
              "tab_datasets": tab_datasets(da, d),
              "tab_bootstrap": tab_bootstrap(bd),
+             "tab_significance": tab_significance(sd),
              "tab_severity": tab_severity(sv, d),
              "tab_prepare": tab_prepare(pc) if pc is not None else tab_prepare_missing(),
              "prompts": prompts_tex(),
